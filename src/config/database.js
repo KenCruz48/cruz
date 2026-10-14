@@ -27,9 +27,9 @@ async function connectDatabase() {
   try {
     configureDns();
 
-    await mongoose.connect(uri, {
-      serverSelectionTimeoutMS: 10000,
-    });
+    const options = { serverSelectionTimeoutMS: 10000 };
+    if (process.env.MONGODB_DB) options.dbName = process.env.MONGODB_DB;
+    await mongoose.connect(uri, options);
 
     console.log('MongoDB Atlas conectado correctamente');
   } catch {

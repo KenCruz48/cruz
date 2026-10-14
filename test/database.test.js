@@ -49,6 +49,20 @@ test('maneja el rechazo del driver sin revelar la URI ni su mensaje', async (t) 
   });
 });
 
+test('MONGODB_DB selecciona explicitamente la BD sin reescribir la URI', async t => {
+  setUri(t, 'mongodb://example.invalid/test');
+  const previous = process.env.MONGODB_DB;
+  process.env.MONGODB_DB = 'racetrack_qa_kevin';
+  t.after(() => {
+    if (previous === undefined) delete process.env.MONGODB_DB;
+    else process.env.MONGODB_DB = previous;
+  });
+  const connect = t.mock.method(mongoose, 'connect', async () => {});
+  await connectDatabase();
+  assert.equal(connect.mock.calls[0].arguments[0], 'mongodb://example.invalid/test');
+  assert.equal(connect.mock.calls[0].arguments[1].dbName, 'racetrack_qa_kevin');
+});
+
 for (const uri of [undefined, 'uri-invalida']) {
   test(`no inicia HTTP y limpia la conexión si MongoDB falla (${uri ?? 'sin URI'})`, async (t) => {
     setUri(t, uri);

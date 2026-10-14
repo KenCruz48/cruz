@@ -11,4 +11,10 @@ function getExampleEvent(req, res) {
 
 module.exports = {
   getExampleEvent,
+  async listEvents(req, res) {
+    res.json({ status: 'success', data: await eventService.listEvents(req.query) });
+  },
+  async getEvent(req, res) {
+    res.json({ status: 'success', data: await eventService.getEvent(req.params.id) });
+  },
 };
