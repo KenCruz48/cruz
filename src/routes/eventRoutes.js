@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.get('/example', eventController.getExampleEvent);
 router.get('/', eventController.listEvents);
+router.get('/:id/ranking', require('../controllers/rankingController').getRanking);
 router.get('/:id/participants', require('../controllers/participantController').listParticipants);
 router.get('/:id', eventController.getEvent);
 

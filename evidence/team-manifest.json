@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "items": [
+    { "ticket": "RACE-45", "owner": "Vanessa Ruiz", "kind": "postman", "path": "evidence/team/postman.json" },
+    { "ticket": "RACE-46", "owner": "Alexis Erazo", "kind": "integration", "path": "evidence/team/integration.json" },
+    { "ticket": "RACE-49", "owner": "Alexis Erazo", "kind": "selenium", "path": "evidence/team/selenium.json" },
+    { "ticket": "RACE-50", "owner": "Vanessa Ruiz", "kind": "jmeter", "path": "evidence/team/jmeter.json" }
+  ]
+}
