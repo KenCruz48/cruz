@@ -170,3 +170,22 @@ No confundas las cuentas de Atlas con los usuarios deportivos de la aplicación.
 Los secretos se entregan por un canal privado y se configura la IP autorizada de
 cada desarrollador. No se incluyen URI, claves ni invitaciones aceptadas ficticias
 en el repositorio. La documentación de acceso está en `docs/sprint2-kevin.md`.
+
+## Sprint 3 de Kevin: clasificación y regresión
+
+RACE-20 incorpora `GET /api/v1/events/:id/ranking` con podio, filtro `category`,
+`page` y `limit`. Ordena por milisegundos, conserva empates de competición (1,1,3,4)
+y excluye resultados inválidos, inscripciones canceladas o de otro evento. Es público
+y no devuelve email ni hash. RACE-19 de Alexis conserva la escritura de resultados.
+
+`npm run regression` ejecuta la suite completa y genera evidencia local con commit,
+fecha y conteos. `npm run verify:ranking` prueba los joins y reglas reales en una BD
+Atlas QA aislada, utilizando `ATLAS_ENV_FILE` privado. No altera datos del proyecto.
+
+La contribución RACE-51 incluye manifiesto de evidencia y guion. Postman, integración,
+Selenium y JMeter permanecen pendientes de sus responsables; el reporte no los marca
+aprobados por ausencia de archivos. `npm run regression -- --require-team` detecta
+entregas faltantes con código 2. El cierre final exige revisión de evidencia del equipo.
+
+Contrato de datos, reglas completas, matriz de regresión y guion en
+[Sprint 3 de Kevin](docs/sprint3-kevin.md).
