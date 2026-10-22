@@ -16,7 +16,7 @@ async function verify() {
   if (!/^racetrack_qa_[a-z0-9_]+$/.test(dbName)) throw new Error('Esta prueba exige BD racetrack_qa_*');
   process.env.MONGODB_DB = dbName;
   const ids = count => Array.from({ length: count }, () => new mongoose.Types.ObjectId());
-  const users = ids(6), events = ids(3), registrations = ids(8), results = ids(11), categories = ids(2);
+  const users = ids(6), events = ids(3), registrations = ids(8), results = ids(14), categories = ids(2);
   const checks = [];
   let server;
   try {
@@ -30,10 +30,10 @@ async function verify() {
       participant: index === 6 ? new mongoose.Types.ObjectId() : users[index % users.length],
       status: index === 5 ? 'cancelled' : 'active', category: index === 2 ? categories[1] : categories[0],
     })));
-    const times = [1000, 1000, 2000, 3000, -5, 500, 400, 300, 1500.5, '500', 9000];
+    const times = [1000, 1000, 2000, 3000, -5, 500, 400, 300, 1500.5, '500', 9000, 100, 50, [1]];
     await mongoose.connection.collection('results').insertMany(results.map((id, index) => ({
-      _id: id, event: events[0], registration: registrations[index < 8 ? index : index === 10 ? 0 : 4],
-      status: 'finished', timeMs: times[index], updatedAt: new Date(index === 10 ? 0 : Date.now()),
+      _id: id, event: events[0], registration: index === 11 ? [registrations[0], registrations[1]] : registrations[index < 8 ? index : index === 10 ? 0 : 4],
+      status: 'finished', timeMs: times[index], updatedAt: index === 12 ? 'invalid-date' : new Date(index === 10 ? 0 : Date.now()),
     })));
     server = require('../src/app').listen(0);
     const base = `http://127.0.0.1:${server.address().port}/api/v1/events`;
@@ -48,7 +48,7 @@ async function verify() {
     assert.deepEqual(data.podium.map(row => row.rank), [1, 1, 3]);
     assert.doesNotMatch(JSON.stringify(data), /passwordHash|email|fixture-not/);
     checks.push('Clasificacion 1,1,3,4 y podio con empates; proyeccion publica segura');
-    checks.push('Excluye tiempos negativos, fraccionarios y texto; cancelados, referencias cruzadas y usuarios inexistentes');
+    checks.push('Excluye negativos, fracciones, texto/arrays, referencias no escalares, fecha invalida, cancelados y referencias cruzadas');
     checks.push('Un resultado vigente por inscripcion: no duplica ni utiliza el tiempo anterior');
     const page = (await (await get('?page=2&limit=2')).json()).data;
     assert.deepEqual(page.ranking.map(row => row.rank), [3, 4]);

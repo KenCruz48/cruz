@@ -8,11 +8,18 @@ const PODIUM_LIMIT = 100;
 // integer millisecond times and valid, active registrations for this event.
 function buildPipeline(eventId, category, skip, limit) {
   const event = new mongoose.Types.ObjectId(eventId);
-  const registrationFilter = { event, status: 'active' };
+  const registrationFilter = { event, status: 'active', $expr: { $and: [
+    { $eq: ['$event', event] }, { $eq: ['$status', 'active'] },
+    { $eq: [{ $type: '$participant' }, 'objectId'] },
+  ] } };
   if (category) registrationFilter.category = new mongoose.Types.ObjectId(category);
   return [
-    { $match: { event, status: 'finished', timeMs: { $type: 'number', $gt: 0, $lte: Number.MAX_SAFE_INTEGER } } },
-    { $match: { $expr: { $eq: ['$timeMs', { $trunc: '$timeMs' }] } } },
+    { $match: { event, status: 'finished', timeMs: { $type: 'number', $gt: 0, $lte: Number.MAX_SAFE_INTEGER },
+      $expr: { $and: [{ $isNumber: '$timeMs' }, { $eq: ['$status', 'finished'] },
+        { $eq: [{ $type: '$event' }, 'objectId'] }, { $eq: [{ $type: '$registration' }, 'objectId'] },
+        { $eq: [{ $type: '$updatedAt' }, 'date'] }] } } },
+    { $match: { $expr: { $cond: [{ $isNumber: '$timeMs' },
+      { $eq: ['$timeMs', { $trunc: '$timeMs' }] }, false] } } },
     { $sort: { updatedAt: -1, _id: -1 } },
     { $group: { _id: '$registration', result: { $first: '$$ROOT' } } },
     { $replaceRoot: { newRoot: '$result' } },
