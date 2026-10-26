@@ -8,4 +8,12 @@ const schema = new mongoose.Schema({
   status: { type: String, enum: ['active', 'cancelled'], default: 'active' },
 }, { timestamps: true });
 schema.index({ event: 1, status: 1, _id: 1 });
+schema.index(
+  { event: 1, participant: 1 },
+  {
+    unique: true,
+    partialFilterExpression: { status: 'active' },
+    name: 'unique_active_registration_per_event_participant',
+  },
+);
 module.exports = mongoose.models.Registration || mongoose.model('Registration', schema);
