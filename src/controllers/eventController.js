@@ -22,9 +22,40 @@ async function createEvent(req, res) {
   });
 }
 
+// RACE-33 - Actualizar un evento existente
+async function updateEvent(req, res) {
+  const event = await eventService.updateEvent(
+    req.params.id,
+    req.body,
+    req.user.id
+  );
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Evento actualizado correctamente',
+    data: event,
+  });
+}
+
+// RACE-33 - Cancelar un evento sin eliminarlo
+async function cancelEvent(req, res) {
+  const event = await eventService.cancelEvent(
+    req.params.id,
+    req.user.id
+  );
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Evento cancelado correctamente',
+    data: event,
+  });
+}
+
 module.exports = {
   getExampleEvent,
   createEvent,
+  updateEvent,
+  cancelEvent,
 
   async listEvents(req, res) {
     res.json({
