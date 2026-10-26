@@ -25,6 +25,20 @@ router.get(
   require('../controllers/participantController').listParticipants
 );
 
+// RACE-33 - Cancelar evento
+router.patch(
+  '/:id/cancel',
+  authMiddleware,
+  eventController.cancelEvent
+);
+
+// RACE-33 - Actualizar evento
+router.patch(
+  '/:id',
+  authMiddleware,
+  eventController.updateEvent
+);
+
 router.get('/:id', eventController.getEvent);
 
 module.exports = router;
