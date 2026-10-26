@@ -1,9 +1,11 @@
+
 const Category = require('../models/categoryModel');
 const {
   httpError,
   objectId,
   pagination,
 } = require('./queryValidation');
+const { escapeRegex } = require('../utils/regexUtils');
 
 const PUBLIC_FIELDS = '_id name description status createdAt updatedAt';
 
@@ -150,10 +152,6 @@ async function deactivateCategory(id) {
   }
 
   return category;
-}
-
-function escapeRegex(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 module.exports = {
