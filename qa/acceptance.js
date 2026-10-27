@@ -48,26 +48,131 @@ function metrics(file) {
     p95Ms: times[Math.ceil(times.length * .95) - 1], maxMs: times.at(-1),
     throughputPerSecond: records.length * 1000 / (end - start) };
 }
+
 async function runJmeter(baseUrl) {
-  if (!process.env.JMETER_HOME || !process.env.JAVA_HOME) throw new Error('Configura JMETER_HOME y JAVA_HOME para ejecutar JMeter real');
-  const java = path.join(process.env.JAVA_HOME, 'bin', process.platform === 'win32' ? 'java.exe' : 'java');
-  const url = new URL(baseUrl);
-  const results = {};
-  for (const [mode, threads, ramp, loops] of [['load', 5, 5, 10], ['stress', 50, 5, 10]]) {
-    const jtl = `${mode}.jtl`;
-    // Never append an earlier run to a new sample set.
-    fs.rmSync(path.join(output, jtl), { force: true });
-    await execute(java, ['-jar', path.join(process.env.JMETER_HOME, 'bin', 'ApacheJMeter.jar'),
-      '-n', '-t', 'performance/RACE-50-rendimiento.jmx', '-l', path.join(output, jtl),
-      '-j', path.join(output, `${mode}-jmeter.log`), `-Jhost=${url.hostname}`, `-Jport=${url.port}`,
-      `-Jthreads=${threads}`, `-Jramp=${ramp}`, `-Jloops=${loops}`], `${mode}-console.txt`);
-    results[mode] = { threads, rampSeconds: ramp, loops, ...metrics(jtl) };
-    if (results[mode].samples !== threads * loops || results[mode].failed) throw new Error(`JMeter ${mode}: muestras incompletas o con errores`);
+  if (!process.env.JMETER_HOME || !process.env.JAVA_HOME) {
+    throw new Error('Configura JMETER_HOME y JAVA_HOME para ejecutar JMeter real');
   }
-  fs.writeFileSync(path.join(output, 'jmeter-metrics.json'), JSON.stringify({ results,
-    interpretation: 'Carga y estrés en equipo local con datos no vacíos. No se alcanzó necesariamente saturación: estas métricas no estiman capacidad de Atlas ni producción.' }, null, 2));
-  report('RACE-50', 'jmeter', results.load.samples + results.stress.samples,
-    ['load.jtl', 'stress.jtl', 'jmeter-metrics.json', 'load-jmeter.log', 'stress-jmeter.log'], results);
+
+  const java = path.join(
+    process.env.JAVA_HOME,
+    'bin',
+    process.platform === 'win32' ? 'java.exe' : 'java'
+  );
+
+  const url = new URL(baseUrl);
+  const sourceJmx = path.join(root, 'performance', 'RACE-50-rendimiento.jmx');
+  const results = {};
+
+  for (const [mode, threads, ramp, loops] of [
+    ['load', 5, 5, 10],
+    ['stress', 50, 5, 10],
+  ]) {
+    const jtlPath = path.join(output, `${mode}.jtl`);
+    const planPath = path.join(output, `${mode}-plan.jmx`);
+
+    // Genera un plan temporal; no modifica el plan original.
+    let jmx = fs.readFileSync(sourceJmx, 'utf8');
+
+    function setThreadGroup(name, enabled) {
+      const expression = new RegExp(
+        `<ThreadGroup\\b[^>]*testname="${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*>`
+      );
+
+      if (!expression.test(jmx)) {
+        throw new Error(`No se encontró el grupo JMeter: ${name}`);
+      }
+
+      jmx = jmx.replace(expression, tag => {
+        tag = tag.replace(/\s+enabled="[^"]*"/, '');
+        return tag.replace(/>$/, ` enabled="${enabled}">`);
+      });
+    }
+
+    setThreadGroup('Carga - Listar eventos', mode === 'load');
+    setThreadGroup('Estrés - Listar eventos', mode === 'stress');
+
+    jmx = jmx
+      .replace(
+        /(<intProp name="ThreadGroup\.num_threads">)[\s\S]*?(<\/intProp>)/g,
+        `$1${threads}$2`
+      )
+      .replace(
+        /(<intProp name="ThreadGroup\.ramp_time">)[\s\S]*?(<\/intProp>)/g,
+        `$1${ramp}$2`
+      )
+      .replace(
+        /(<stringProp name="LoopController\.loops">)[\s\S]*?(<\/stringProp>)/g,
+        `$1${loops}$2`
+      )
+      .replace(
+        /(<stringProp name="HTTPSampler\.domain">)[\s\S]*?(<\/stringProp>)/g,
+        `$1${url.hostname}$2`
+      )
+      .replace(
+        /(<stringProp name="HTTPSampler\.port">)[\s\S]*?(<\/stringProp>)/g,
+        `$1${url.port || (url.protocol === 'https:' ? '443' : '80')}$2`
+      );
+
+    fs.writeFileSync(planPath, jmx);
+    fs.rmSync(jtlPath, { force: true });
+
+    await execute(
+      java,
+      [
+        '-jar',
+        path.join(process.env.JMETER_HOME, 'bin', 'ApacheJMeter.jar'),
+        '-n',
+        '-t',
+        planPath,
+        '-l',
+        jtlPath,
+        '-j',
+        path.join(output, `${mode}-jmeter.log`),
+      ],
+      `${mode}-console.txt`
+    );
+
+    results[mode] = {
+      threads,
+      rampSeconds: ramp,
+      loops,
+      ...metrics(`${mode}.jtl`),
+    };
+
+    if (
+      results[mode].samples !== threads * loops ||
+      results[mode].failed > 0
+    ) {
+      throw new Error(
+        `JMeter ${mode}: se esperaban ${threads * loops} muestras sin errores; ` +
+        `se obtuvieron ${results[mode].samples} muestras y ${results[mode].failed} errores`
+      );
+    }
+  }
+
+  fs.writeFileSync(
+    path.join(output, 'jmeter-metrics.json'),
+    JSON.stringify({
+      results,
+      interpretation:
+        'Carga y estrés en equipo local con datos no vacíos. No se alcanzó necesariamente saturación: estas métricas no estiman capacidad de Atlas ni producción.',
+    }, null, 2)
+  );
+
+  report(
+    'RACE-50',
+    'jmeter',
+    results.load.samples + results.stress.samples,
+    [
+      'load.jtl',
+      'stress.jtl',
+      'jmeter-metrics.json',
+      'load-jmeter.log',
+      'stress-jmeter.log',
+    ],
+    results
+  );
 }
 async function run() {
   fs.mkdirSync(output, { recursive: true });
