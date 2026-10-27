@@ -65,9 +65,11 @@ test(
 
     t.mock.method(
       Event,
-      'findByIdAndUpdate',
-      (id, update, options) => {
-        assert.equal(id, eventId);
+      'findOneAndUpdate',
+      (filter, update, options) => {
+        assert.equal(filter._id, eventId);
+        assert.equal(filter.owner, ownerId);
+        assert.deepEqual(filter.registeredCount, { $lte: 250 });
         assert.equal(update.$set.name, 'Carrera 10K Mocoa');
         assert.equal(update.$set.capacity, 250);
         assert.equal(options.new, true);
