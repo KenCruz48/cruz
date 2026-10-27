@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>RaceTrack API</title>
+
+  <link
+    rel="stylesheet"
+    href="/styles.css"
+  >
+</head>
+
+<body>
+
+  <main class="container">
+
+    <h1 id="page-title">
+      RaceTrack
+    </h1>
+
+    <p class="subtitle">
+      Cliente web para pruebas de sistema
+    </p>
+
+    <!-- LOGIN -->
+    <section
+      id="login-section"
+      class="card"
+    >
+
+      <h2>
+        Iniciar sesión
+      </h2>
+
+      <form id="login-form">
+
+        <label for="login-email">
+          Correo
+        </label>
+
+        <input
+          id="login-email"
+          type="email"
+          autocomplete="email"
+          required
+        >
+
+        <label for="login-password">
+          Contraseña
+        </label>
+
+        <input
+          id="login-password"
+          type="password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button
+          id="login-button"
+          type="submit"
+        >
+          Iniciar sesión
+        </button>
+
+      </form>
+
+      <p
+        id="login-message"
+        class="message"
+        aria-live="polite"
+      ></p>
+
+    </section>
+
+    <!-- INSCRIPCIÓN -->
+    <section
+      id="registration-section"
+      class="card"
+      hidden
+    >
+
+      <h2>
+        Inscripción a evento
+      </h2>
+
+      <p>
+        Usuario:
+        <strong id="user-name"></strong>
+      </p>
+
+      <button
+        id="refresh-data-button"
+        type="button"
+      >
+        Actualizar eventos y categorías
+      </button>
+
+      <form id="registration-form">
+
+        <label for="events-select">
+          Evento
+        </label>
+
+        <select
+          id="events-select"
+          required
+        >
+          <option value="">
+            Seleccione un evento
+          </option>
+        </select>
+
+        <label for="categories-select">
+          Categoría
+        </label>
+
+        <select
+          id="categories-select"
+          required
+        >
+          <option value="">
+            Seleccione una categoría
+          </option>
+        </select>
+
+        <button
+          id="register-button"
+          type="submit"
+        >
+          Inscribirme
+        </button>
+
+      </form>
+
+      <p
+        id="status-message"
+        class="message"
+        aria-live="polite"
+      ></p>
+
+    </section>
+
+  </main>
+
+  <script src="/app.js"></script>
+
+</body>
+</html>

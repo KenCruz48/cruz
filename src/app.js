@@ -1,3 +1,6 @@
+const path =
+  require('path');
+
 const express =
   require('express');
 
@@ -24,6 +27,19 @@ const errorHandler =
 
 const app =
   express();
+
+/**
+ * RACE-48
+ * Cliente web básico para pruebas de sistema y UI.
+ */
+app.use(
+  express.static(
+    path.join(
+      __dirname,
+      '../public'
+    )
+  )
+);
 
 app.use(
   express.json()
@@ -58,10 +74,6 @@ app.use(
   categoryRoutes
 );
 
-/**
- * RACE-19
- * Registro de tiempos y resultados.
- */
 app.use(
   '/api/v1/results',
   resultRoutes
