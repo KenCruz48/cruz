@@ -1,8 +1,11 @@
 const bcrypt = require('bcryptjs');
 const User = require('../models/userModel');
 
-async function registerUser({ name, email, password }) {
-  if (!name || !email || !password) {
+async function registerUser(data = {}) {
+  const { name, email, password } = data || {};
+  if (typeof name !== 'string' || typeof email !== 'string' || typeof password !== 'string'
+    || name.trim().length < 2 || name.trim().length > 100
+    || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) || !password) {
     const error = new Error(
       'Nombre, correo y contrasena son obligatorios'
     );

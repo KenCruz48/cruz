@@ -1,5 +1,11 @@
 # Sprint 3 · Entrega de Kevin Cruz
 
+> Actualización 26/10/2026: el escritor RACE-19 está integrado en develop y la entrega
+> final incorpora cliente web, Selenium/POM y ejecución conjunta de Newman/JMeter.
+> `npm run qa:acceptance` genera las evidencias antes externas con datos QA aislados.
+> Véase [validación final](validacion-final.md). Los pendientes de este documento
+> describen la entrega histórica previa a esa integración.
+
 Alcance: RACE-20 (clasificación/podios) y contribución de Kevin a RACE-51
 (regresión y sustentación). Atlas queda a cargo del usuario desde su interfaz.
 

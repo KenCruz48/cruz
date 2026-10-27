@@ -2,6 +2,11 @@
 
 Fecha de implementación: 14 de octubre de 2026. Destino de integración: `develop`.
 
+> Actualización 26/10/2026: el usuario retiró el requisito de acceso compartido.
+> Atlas queda exclusivamente a cargo de Kevin; no se requieren invitaciones de Alexis
+> ni Vanessa. Los contratos y pendientes descritos abajo son históricos; la integración
+> actual y los comandos de aceptación están en [validación final](validacion-final.md).
+
 ## Entregables
 
 | Ticket | Implementación | Verificación |
