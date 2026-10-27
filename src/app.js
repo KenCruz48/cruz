@@ -25,6 +25,8 @@ const errorHandler =
 const app =
   express();
 
+app.use(express.static(require('node:path').join(__dirname, '..', 'public')));
+
 app.use(
   express.json()
 );

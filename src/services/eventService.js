@@ -321,8 +321,9 @@ async function updateEvent(id, data = {}, ownerId) {
   }
 
   // Actualizar el evento
-  const event = await Event.findByIdAndUpdate(
-    id,
+  const event = await Event.findOneAndUpdate(
+    { _id: id, owner: ownerId,
+      ...(update.capacity !== undefined ? { registeredCount: { $lte: update.capacity } } : {}) },
     {
       $set: update,
     },
@@ -334,6 +335,7 @@ async function updateEvent(id, data = {}, ownerId) {
     .select(PUBLIC_FIELDS)
     .lean();
 
+  if (!event) throw httpError(409, 'El evento cambio; el cupo no puede ser menor al numero de inscritos');
   return event;
 }
 
