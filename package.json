@@ -8,6 +8,7 @@
     "dev": "cross-env NODE_ENV=development node --watch src/server.js",
     "test": "cross-env NODE_ENV=test node --test",
     "regression": "node scripts/regression-report.js",
+    "qa:acceptance": "node qa/acceptance.js",
     "verify:ranking": "node scripts/verify-ranking-atlas.js",
     "start:production": "cross-env NODE_ENV=production node src/server.js"
   },
@@ -35,6 +36,9 @@
     "node": ">=22"
   },
   "devDependencies": {
-    "cross-env": "^10.1.0"
+    "cross-env": "^10.1.0",
+    "mongodb-memory-server": "^10.2.0",
+    "newman": "^6.2.1",
+    "selenium-webdriver": "^4.35.0"
   }
 }

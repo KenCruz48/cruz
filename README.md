@@ -1,4 +1,4 @@
-﻿# RaceTrack API
+# RaceTrack API
 
 Backend para la gestión de eventos deportivos desarrollado con Node.js, Express y MongoDB Atlas.
 
@@ -73,18 +73,46 @@ Si falta `MONGODB_URI` o falla MongoDB, HTTP no inicia y el proceso termina con 
 `.env` y `.env.*` están excluidos de Git; `.env.example` está permitido.
 Guarda las credenciales exclusivamente en tu entorno o `.env` local.
 
-## Roadmap y alcance del Sprint 2 de Kevin (RACE-53)
+## Entrega actual y verificación de los tres sprints
+
+El código integrado incluye eventos, categorías, usuarios/JWT, inscripciones,
+cancelaciones, resultados, clasificación y un cliente HTML/JS en `/`.
+La revisión final incorpora el flujo de resultados de `develop`, el cliente
+RACE-48, automatización Selenium/POM RACE-49 y ejecución reproducible de QA RACE-51.
+
+```powershell
+npm ci
+npm test
+# Java 17+ y Apache JMeter 5.6.3 deben estar instalados para la aceptación completa.
+$env:JAVA_HOME = 'C:\ruta\jdk-17'
+$env:JMETER_HOME = 'C:\ruta\apache-jmeter-5.6.3'
+npm run qa:acceptance
+npm run regression -- --require-team
+```
+
+`qa:acceptance` inicia una réplica MongoDB 7.0.14 local desechable, crea fixtures,
+ejecuta HTTP con transacciones reales, Newman, Chrome/Selenium y JMeter y cierra
+la réplica. La primera ejecución descarga MongoDB y ChromeDriver; necesita red.
+No utiliza Atlas. Admite `MONGOMS_SYSTEM_BINARY`, `CHROME_BINARY` y
+`CHROMEDRIVER_PATH` para instalaciones locales. Las pruebas y sus salidas se
+documentan en [validación final](docs/validacion-final.md).
+
+El servidor normal sigue usando la URI privada de Atlas. Por decisión del usuario
+del 26/10/2026, **Atlas queda exclusivamente a cargo de Kevin**; el acceso de Alexis
+y Vanessa no forma parte de RACE-52. No se crean invitaciones ni se amplía la red.
+
+## Roadmap y alcance histórico del Sprint 2 de Kevin (RACE-53)
 
 | Sprint | Objetivo | Responsables |
 | --- | --- | --- |
 | 1 | Servidor Express, Atlas, estructura por capas, errores y flujo Jira/GitHub. | Kevin, Alexis y Vanessa; revisión histórica completada. |
 | 2 | Eventos/categorías, inscripciones, autenticación, Postman, integración y CI. | Kevin: RACE-10/29/30, RACE-16, RACE-17, RACE-41, RACE-43, RACE-47, RACE-52 y RACE-53. Alexis y Vanessa mantienen sus tickets. |
-| 3 | Resultados, clasificación, cliente web, Selenium, JMeter y regresión final. | Según el Sprint 3 de Jira; no se implementa aquí. |
+| 3 | Resultados, clasificación, cliente web, Selenium, JMeter y regresión final. | Integrados y verificables con `npm run qa:acceptance`. |
 
 La configuración de ambientes RACE-43 ya fue integrada históricamente en el PR #9.
-Este incremento implementa solo el alcance de Kevin. No incluye creación/edición
-de eventos (Alexis), categorías (Vanessa), creación/cancelación de inscripciones,
-middleware JWT común, Postman ni las pruebas globales de los otros integrantes.
+El incremento histórico de Kevin se complementó con creación/edición de eventos,
+categorías, creación/cancelación de inscripciones, middleware JWT y Postman de los
+otros integrantes. La revisión final conserva su autoría y agrega QA de integración.
 
 ### Arquitectura
 
@@ -161,15 +189,13 @@ del Scrum Master → merge. `main` se utiliza para versiones revisadas. Tener c�
 local o CI verde no equivale a aprobación humana. Las incidencias se cierran cuando
 sus criterios de aceptación, revisión e integración se hayan cumplido.
 
-### MongoDB Atlas compartido (RACE-52)
+### MongoDB Atlas administrado por Kevin (RACE-52)
 
-Proyecto: RaceTrack API. Kevin conserva el rol Project Owner. Las invitaciones de
-Alexis y Vanessa requieren permisos de proyecto apropiados y aceptación de ambos.
-Comprueba Members/Users en Project Identity & Access antes de cerrar RACE-52.
-No confundas las cuentas de Atlas con los usuarios deportivos de la aplicación.
-Los secretos se entregan por un canal privado y se configura la IP autorizada de
-cada desarrollador. No se incluyen URI, claves ni invitaciones aceptadas ficticias
-en el repositorio. La documentación de acceso está en `docs/sprint2-kevin.md`.
+Proyecto: RaceTrack API. Kevin administra la conexión y guarda la URI únicamente
+en variables privadas. La consulta al conector de Atlas confirmó el proyecto y
+Cluster0 activo el 26/10/2026. No equivale a una nueva ejecución de la API contra
+Atlas: las pruebas finales aisladas usan MongoDB local. Los demás integrantes
+no necesitan acceso a Atlas, conforme al alcance actualizado por el usuario.
 
 ## Sprint 3 de Kevin: clasificación y regresión
 
@@ -182,10 +208,10 @@ y no devuelve email ni hash. RACE-19 de Alexis conserva la escritura de resultad
 fecha y conteos. `npm run verify:ranking` prueba los joins y reglas reales en una BD
 Atlas QA aislada, utilizando `ATLAS_ENV_FILE` privado. No altera datos del proyecto.
 
-La contribución RACE-51 incluye manifiesto de evidencia y guion. Postman, integración,
-Selenium y JMeter permanecen pendientes de sus responsables; el reporte no los marca
-aprobados por ausencia de archivos. `npm run regression -- --require-team` detecta
-entregas faltantes con código 2. El cierre final exige revisión de evidencia del equipo.
+La contribución RACE-51 incluye manifiesto, guion y ejecución conjunta de Postman,
+integración, Selenium/POM y JMeter. `npm run qa:acceptance` genera los originales
+en `evidence/team/`; `npm run regression -- --require-team` detecta evidencia ausente
+o inválida con código 2. La evidencia se genera de nuevo en el job de aceptación CI.
 
 Contrato de datos, reglas completas, matriz de regresión y guion en
 [Sprint 3 de Kevin](docs/sprint3-kevin.md).

@@ -1,25 +1,81 @@
-const express = require('express');
-const eventRoutes = require('./routes/eventRoutes');
-const userRoutes = require('./routes/userRoutes');
-const notFound = require('./middlewares/notFound');
-const errorHandler = require('./middlewares/errorHandler');
-const registrationRoutes = require('./routes/registrationRoutes');
-const categoryRoutes = require('./routes/categoryRoutes');
+const express =
+  require('express');
 
-const app = express();
+const eventRoutes =
+  require('./routes/eventRoutes');
 
-app.use(express.json());
+const userRoutes =
+  require('./routes/userRoutes');
 
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok' });
-});
+const registrationRoutes =
+  require('./routes/registrationRoutes');
 
-app.use('/api/v1/events', eventRoutes);
-app.use('/api/v1/users', userRoutes);
-app.use('/api/v1/registrations', registrationRoutes);
-app.use('/api/v1/categories', categoryRoutes);
+const categoryRoutes =
+  require('./routes/categoryRoutes');
 
-app.use(notFound);
-app.use(errorHandler);
+const resultRoutes =
+  require('./routes/resultRoutes');
 
-module.exports = app;
+const notFound =
+  require('./middlewares/notFound');
+
+const errorHandler =
+  require('./middlewares/errorHandler');
+
+const app =
+  express();
+
+app.use(express.static(require('node:path').join(__dirname, '..', 'public')));
+
+app.use(
+  express.json()
+);
+
+app.get(
+  '/health',
+  (req, res) => {
+    res.status(200).json({
+      status: 'ok',
+    });
+  }
+);
+
+app.use(
+  '/api/v1/events',
+  eventRoutes
+);
+
+app.use(
+  '/api/v1/users',
+  userRoutes
+);
+
+app.use(
+  '/api/v1/registrations',
+  registrationRoutes
+);
+
+app.use(
+  '/api/v1/categories',
+  categoryRoutes
+);
+
+/**
+ * RACE-19
+ * Registro de tiempos y resultados.
+ */
+app.use(
+  '/api/v1/results',
+  resultRoutes
+);
+
+app.use(
+  notFound
+);
+
+app.use(
+  errorHandler
+);
+
+module.exports =
+  app;

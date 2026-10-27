@@ -22,6 +22,40 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: npm
       - run: npm ci
+        env:
+          MONGOMS_DISABLE_POSTINSTALL: '1'
       - run: npm test
         env:
           NODE_ENV: test
+  acceptance:
+    name: Integration, Newman, Selenium and JMeter
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: npm ci
+        env:
+          MONGOMS_DISABLE_POSTINSTALL: '1'
+      - name: Install JMeter 5.6.3
+        run: |
+          curl --fail --location --retry 3 https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz -o "$RUNNER_TEMP/jmeter.tgz"
+          tar -xzf "$RUNNER_TEMP/jmeter.tgz" -C "$RUNNER_TEMP"
+          echo "JMETER_HOME=$RUNNER_TEMP/apache-jmeter-5.6.3" >> "$GITHUB_ENV"
+      - run: npm run qa:acceptance
+      - run: npm run regression -- --require-team
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: racetrack-final-qa
+          path: |
+            evidence/team/
+            evidence/generated/
+          if-no-files-found: error
