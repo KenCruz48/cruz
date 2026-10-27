@@ -43,6 +43,19 @@ de producción. La prueba de estrés aumenta concurrencia; puede no alcanzar el 
 
 ## Evidencia y trazabilidad
 
+Primera ejecución completa verificada: GitHub Actions
+https://github.com/KenCruz48/racetrack-api/actions/runs/40427631209,
+26/10/2026 (Bogotá), PR #31. Pasaron 124 pruebas, 17 assertions Newman,
+8 comprobaciones de flujo HTTP, 6 comprobaciones Selenium y 550 muestras JMeter.
+Carga: promedio 2,22 ms, p95 3 ms, 0 errores/50. Estrés: promedio 2,4 ms,
+p95 10 ms, 0 errores/500. Estos valores identifican esa ejecución concreta.
+
+La revisión de dependencias corrigió body-parser con una actualización compatible
+del lockfile: `npm audit --omit=dev` quedó sin vulnerabilidades reportadas.
+Newman y dependencias transitivas de QA mantienen avisos del registro; se usan
+exclusivamente con la colección versionada y fixtures locales, fuera del servidor
+de producción. No se aplicó el downgrade incompatible sugerido por `audit --force`.
+
 Cada módulo genera un JSON de manifiesto con SHA, fecha, comando, entorno, conteos
 y rutas a originales. El informe de regresión distingue formato de revisión técnica.
 Los originales permanecen ignorados y se publican como artifact del job CI.

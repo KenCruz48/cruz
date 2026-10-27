@@ -34,14 +34,19 @@ async function runSystem(fixture) {
   assert.equal((await api(`/registrations/${registrationId}`, 'DELETE', null, runnerToken)).status, 200);
   assert.equal((await api(`/events/${eventId}/ranking`)).body.data.total, 0);
   assert.equal((await Event.findById(eventId)).registeredCount, 0); checks.push('Cancelación libera cupo y retira resultado');
+  const updated = await api(`/events/${eventId}`, 'PATCH', { name: 'Flujo QA actualizado', capacity: 1 }, ownerToken);
+  assert.equal(updated.status, 200); assert.equal(updated.body.data.capacity, 1);
+  assert.equal((await api(`/events/${eventId}/cancel`, 'PATCH', null, ownerToken)).status, 200);
+  assert.equal((await Event.findById(eventId)).status, 'cancelled'); checks.push('Actualización y cancelación HTTP de evento');
   const concurrencyEvent = await Event.create({ name: 'Concurrencia QA', date: new Date(Date.now() + 86400000), location: 'QA', distance: 5, capacity: 3, owner: fixture.owner.id });
   const attempts = await Promise.allSettled(Array.from({ length: 12 }, () => withReservedCapacity(String(concurrencyEvent._id),
     async session => Registration.create([{ event: concurrencyEvent._id, participant: new mongoose.Types.ObjectId() }], { session }))));
   assert.equal(attempts.filter(x => x.status === 'fulfilled').length, 3);
   assert.equal((await Event.findById(concurrencyEvent._id)).registeredCount, 3); checks.push('12 reservas concurrentes / 3 cupos exactos');
-  const before = (await Event.findById(eventId)).registeredCount;
-  await assert.rejects(withReservedCapacity(eventId, async () => { throw new Error('QA rollback'); }), /QA rollback/);
-  assert.equal((await Event.findById(eventId)).registeredCount, before); checks.push('Rollback real del contador');
+  const rollbackId = String(fixture.event._id);
+  const before = (await Event.findById(rollbackId)).registeredCount;
+  await assert.rejects(withReservedCapacity(rollbackId, async () => { throw new Error('QA rollback'); }), /QA rollback/);
+  assert.equal((await Event.findById(rollbackId)).registeredCount, before); checks.push('Rollback real del contador');
   assert.equal((await api('/events/not-an-id')).status, 400);
   assert.equal((await api(`/events/${new mongoose.Types.ObjectId()}`)).status, 404); checks.push('Errores 400/404 controlados');
   return checks;
