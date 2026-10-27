@@ -25,10 +25,26 @@ function report(ticket, name, total, artifacts, details) {
     tests: { total, passed: total, failed: 0 }, artifacts: artifacts.map(file => `evidence/team/${file}`), details,
   }, null, 2));
 }
-async function runPostman(baseUrl) {
+async function runPostman(fixture) {
+  const response = await fetch(fixture.baseUrl + '/api/v1/users/login', { method: 'POST',
+    headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: 'owner@example.invalid', password: fixture.password }) });
+  if (!response.ok) throw new Error('No se pudo autenticar la colección Postman');
+  const { data } = await response.json();
+  const collection = structuredClone(require('../postman/Racetrack-API.postman_collection.json'));
+  // Use a per-run token. Never persist credentials or JWTs in the collection.
+  const protect = items => items.forEach(item => {
+    if (item.item) protect(item.item);
+    if (item.request && ['POST', 'PATCH', 'DELETE'].includes(item.request.method) && item.request.url.includes('/categories')) {
+      item.request.header ||= [];
+      if (!item.request.header.some(header => header.key.toLowerCase() === 'authorization')) {
+        item.request.header.push({ key: 'Authorization', value: 'Bearer {{token}}' });
+      }
+    }
+  });
+  protect(collection.item);
   const summary = await new Promise((resolve, reject) => newman.run({
-    collection: require('../postman/Racetrack-API.postman_collection.json'),
-    envVar: [{ key: 'baseUrl', value: baseUrl }], reporters: ['json'],
+    collection,
+    envVar: [{ key: 'baseUrl', value: fixture.baseUrl }, { key: 'token', value: data.token }], reporters: ['json'],
     reporter: { json: { export: path.join(output, 'newman-original.json') } },
   }, (error, summary) => error ? reject(error) : resolve(summary)));
   if (summary.run.failures.length) throw new Error(`Newman: ${summary.run.failures.length} fallos`);
@@ -83,11 +99,11 @@ async function run() {
         await execute(process.execPath, ['scripts/verify-kevin-atlas.js'], 'capacity-real.txt');
         fs.writeFileSync(path.join(output, 'system-checks.json'), JSON.stringify(checks, null, 2));
         report('RACE-46', 'integration', checks.length, ['system-checks.json', 'ranking-real.txt', 'capacity-real.txt'], checks);
-      }], ['postman', () => runPostman(fixture.baseUrl)],
+      }], ['postman', () => runPostman(fixture)],
       ['selenium', async () => {
         const checks = await runSelenium(fixture, output);
         fs.writeFileSync(path.join(output, 'selenium-checks.json'), JSON.stringify(checks, null, 2));
-        report('RACE-49', 'selenium', checks.length, ['selenium-checks.json', 'selenium-registration.png', 'selenium-final.png'], checks);
+        report('RACE-49', 'selenium', checks.length, ['selenium-checks.json', 'selenium-registration.png', 'selenium-final.png', 'selenium-desktop.png', 'selenium-mobile.png'], checks);
       }], ['jmeter', () => runJmeter(fixture.baseUrl)],
     ]) {
       try { await work(); console.log(`${name}: PASS`); }

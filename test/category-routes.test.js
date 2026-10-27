@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const { once } = require('node:events');
 
 const Category = require('../src/models/categoryModel');
+const authService = require('../src/services/authService');
 const app = require('../src/app');
 
 const id = '507f1f77bcf86cd799439011';
@@ -21,6 +22,7 @@ function query(result) {
 }
 
 test('POST /api/v1/categories crea una categoría y responde 201', async t => {
+  t.mock.method(authService, 'authenticate', async () => ({ id }));
   t.mock.method(Category, 'findOne', () => query(null));
 
   t.mock.method(Category, 'create', async data => ({
@@ -52,7 +54,7 @@ test('POST /api/v1/categories crea una categoría y responde 201', async t => {
     `http://127.0.0.1:${server.address().port}/api/v1/categories`,
     {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer qa-token' },
       body: JSON.stringify({
         name: 'Atletismo',
         description: 'Pruebas de pista',
@@ -150,6 +152,7 @@ test('GET /api/v1/categories/:id responde 400 ante un identificador inválido', 
 });
 
 test('PATCH /api/v1/categories/:id actualiza una categoría', async t => {
+  t.mock.method(authService, 'authenticate', async () => ({ id }));
   t.mock.method(Category, 'findOne', () => query(null));
 
   t.mock.method(Category, 'findByIdAndUpdate', (key, update, options) => {
@@ -177,7 +180,7 @@ test('PATCH /api/v1/categories/:id actualiza una categoría', async t => {
     `http://127.0.0.1:${server.address().port}/api/v1/categories/${id}`,
     {
       method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer qa-token' },
       body: JSON.stringify({ name: 'Ciclismo' }),
     }
   );
@@ -191,6 +194,7 @@ test('PATCH /api/v1/categories/:id actualiza una categoría', async t => {
 });
 
 test('PATCH /api/v1/categories/:id/deactivate desactiva una categoría', async t => {
+  t.mock.method(authService, 'authenticate', async () => ({ id }));
   t.mock.method(Category, 'findByIdAndUpdate', (key, update, options) => {
     assert.equal(key, id);
     assert.deepEqual(update, { $set: { status: 'inactive' } });
@@ -214,7 +218,7 @@ test('PATCH /api/v1/categories/:id/deactivate desactiva una categoría', async t
 
   const response = await fetch(
     `http://127.0.0.1:${server.address().port}/api/v1/categories/${id}/deactivate`,
-    { method: 'PATCH' }
+    { method: 'PATCH', headers: { Authorization: 'Bearer qa-token' } }
   );
 
   assert.equal(response.status, 200);

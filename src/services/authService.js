@@ -17,6 +17,7 @@ function secret() {
 async function login(credentials) {
   const { email, password } = credentials || {};
   if (typeof email !== 'string' || typeof password !== 'string') throw authError();
+  if (email.length > 254 || Buffer.byteLength(password, 'utf8') > 72) throw authError();
   const user = await User.findOne({ email: email.trim().toLowerCase() }).select('+passwordHash');
   if (!user || !user.active || !(await bcrypt.compare(password, user.passwordHash))) throw authError();
   const token = jwt.sign({}, secret(), {
