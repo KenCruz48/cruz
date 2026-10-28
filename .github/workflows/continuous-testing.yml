@@ -7,6 +7,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   test:
     name: Node ${{ matrix.node }} tests
@@ -46,7 +49,15 @@ jobs:
           MONGOMS_DISABLE_POSTINSTALL: '1'
       - name: Install JMeter 5.6.3
         run: |
-          curl --fail --location --retry 3 https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz -o "$RUNNER_TEMP/jmeter.tgz"
+          jmeter_downloaded=false
+          for jmeter_source in https://dlcdn.apache.org/jmeter/binaries/apache-jmeter-5.6.3.tgz https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz; do
+            if curl --fail --location --connect-timeout 15 --max-time 120 --retry 1 --retry-delay 3 "$jmeter_source" -o "$RUNNER_TEMP/jmeter.tgz"; then
+              jmeter_downloaded=true
+              break
+            fi
+          done
+          if [ "$jmeter_downloaded" != true ]; then echo "JMeter download failed"; exit 1; fi
+          echo "5978a1a35edb5a7d428e270564ff49d2b1b257a65e17a759d259a9283fc17093e522fe46f474a043864aea6910683486340706d745fcdf3db1505fd71e689083  $RUNNER_TEMP/jmeter.tgz" | sha512sum --check
           tar -xzf "$RUNNER_TEMP/jmeter.tgz" -C "$RUNNER_TEMP"
           echo "JMETER_HOME=$RUNNER_TEMP/apache-jmeter-5.6.3" >> "$GITHUB_ENV"
       - run: npm run qa:acceptance

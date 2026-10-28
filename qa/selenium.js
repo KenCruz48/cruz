@@ -6,11 +6,13 @@ const chrome = require('selenium-webdriver/chrome');
 const RaceTrackPage = require('./pages/RaceTrackPage');
 
 async function runSelenium(fixture, output) {
-  const options = new chrome.Options().addArguments('--headless=new', '--window-size=1400,1100', '--no-sandbox');
+  const options = new chrome.Options().addArguments('--headless=new', '--window-size=1400,1100', '--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage');
+  options.setPageLoadStrategy('eager');
   if (process.env.CHROME_BINARY) options.setChromeBinaryPath(process.env.CHROME_BINARY);
   const builder = new Builder().forBrowser('chrome').setChromeOptions(options);
   if (process.env.CHROMEDRIVER_PATH) builder.setChromeService(new chrome.ServiceBuilder(process.env.CHROMEDRIVER_PATH));
   const driver = await builder.build();
+  await driver.manage().setTimeouts({ pageLoad: 30000, script: 30000, implicit: 0 });
   const checks = [];
   const page = new RaceTrackPage(driver);
   try {
