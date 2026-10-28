@@ -2,32 +2,44 @@
 <html lang="es">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RaceTrack · Eventos deportivos</title>
-  <link rel="stylesheet" href="/styles.css"><script src="/client.js" defer></script>
+  <meta name="theme-color" content="#142335"><meta name="description" content="Encuentra tu próxima carrera, gestiona tu inscripción y consulta los resultados en RaceTrack.">
+  <title>RaceTrack · Panel de carreras</title>
+  <link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><script src="/client.js" defer></script>
 </head>
 <body>
-  <header><span>RACETRACK</span><h1>Tu próxima carrera empieza aquí.</h1><p>Consulta eventos, inscríbete y sigue los resultados.</p></header>
-  <main>
-    <section aria-labelledby="account-title"><h2 id="account-title">Mi cuenta</h2>
-      <form id="account-form"><label>Nombre (para registrarte)<input id="name" autocomplete="name" maxlength="100"></label>
-        <label>Correo<input id="email" type="email" autocomplete="username" required></label>
-        <label>Contraseña<input id="password" type="password" autocomplete="current-password" required></label>
-        <div class="actions"><button id="login" type="submit">Entrar</button><button id="register" type="button">Crear cuenta</button><button id="logout" type="button" hidden>Salir</button></div>
-      </form><p id="account-status" role="status">Inicia sesión para inscribirte.</p>
-    </section>
-    <section aria-labelledby="events-title"><div class="section-heading"><h2 id="events-title">Eventos</h2><button id="refresh" type="button">Actualizar</button></div>
-      <p id="events-status" role="status"></p><div id="events"></div>
-      <div class="actions"><button id="previous" type="button" disabled>Anterior</button><span id="page-number">Página 1</span><button id="next" type="button">Siguiente</button></div>
-    </section>
-    <section aria-labelledby="registration-title"><h2 id="registration-title">Inscribirme</h2>
-      <form id="registration-form"><label>Evento<select id="event" required><option value="">Selecciona un evento</option></select></label>
-        <label>Categoría<select id="category" required><option value="">Selecciona una categoría</option></select></label>
-        <button id="submit-registration" type="submit">Confirmar inscripción</button>
-      </form><p id="registration-status" role="status"></p><button id="cancel-registration" type="button" hidden>Cancelar mi inscripción</button>
-    </section>
-    <section aria-labelledby="ranking-title"><h2 id="ranking-title">Clasificación</h2>
-      <p id="ranking-status" role="status">Elige «Ver clasificación» en un evento.</p>
-      <ol id="ranking"></ol>
-    </section>
-  </main><footer>RaceTrack · Eventos, participación y resultados</footer>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="#main" aria-label="RaceTrack, inicio"><img src="/mark.svg" width="38" height="38" alt=""><span>race<span class="brand-light">track</span><small>EVENTOS · INSCRIPCIONES · RESULTADOS</small></span></a><nav class="navigation" aria-label="Navegación principal">
+      <a class="nav-link active" href="#main" aria-current="location"><span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span> Vista general</a>
+      <a class="nav-link" href="#events-section"><span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V3m0 1c5-4 9 4 14 0v10c-5 4-9-4-14 0"/></svg></span> Explorar eventos <span class="nav-count" id="nav-event-count">—</span></a>
+      <a class="nav-link" href="#registration-section"><span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v4a2 2 0 0 0 0 4v4H3v-4a2 2 0 0 0 0-4V7zM9 7v3m0 4v5"/></svg></span> Mi inscripción</a>
+      <a class="nav-link" href="#ranking-section"><span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v6a4 4 0 0 1-8 0V3zM8 5H4v2a4 4 0 0 0 4 4m8-6h4v2a4 4 0 0 1-4 4M12 13v7m-4 1h8"/></svg></span> Clasificaciones</a>
+    </nav><a class="header-account" href="#account-section"><span class="avatar" id="sidebar-avatar">RT</span><span><strong id="sidebar-name">Mi cuenta</strong><small id="sidebar-session">Accede a tu espacio</small></span><span class="account-arrow" aria-hidden="true">↗</span></a></div></header>
+  <div class="workspace">
+    <div class="topbar"><div class="breadcrumb">Mi espacio <span>/</span> <strong>Vista general</strong></div><div class="topbar-right"><span id="connection-status" class="connection"><i aria-hidden="true"></i>Comprobando conexión</span></div></div>
+    <main id="main" tabindex="-1"><p id="demo-notice" class="demo-notice" hidden>Demostración académica · Los eventos, participantes y tiempos son datos de ejemplo para comprobar el flujo de RaceTrack.</p>
+      <div class="page-heading"><div><p class="eyebrow">EL SIGUIENTE RETO ES TUYO</p><h1>Carreras, inscripciones y resultados.</h1><p class="page-description">Consulta fechas y cupos, confirma tu inscripción y revisa los tiempos de cada evento.</p></div><span class="today" id="today"></span></div>
+      <section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><span class="hero-tag"><span aria-hidden="true">●</span> RACETRACK · CATÁLOGO DE EVENTOS</span><h2 id="hero-title">Elige tu carrera.<br>Reserva tu cupo<span>.</span></h2><p>Compara distancia, fecha y ubicación.<br>Inscríbete en una categoría con tu cuenta.</p><a class="button button-orange" href="#events-section">Encuentra tu carrera <span aria-hidden="true">↗</span></a></div><div class="hero-art" aria-hidden="true"><img class="hero-illustration" src="/illustrations/running-wild.svg" width="620" height="440" alt=""></div></section>
+      <section class="stats" aria-label="Resumen del catálogo visible">
+        <article class="stat"><span class="stat-icon orange"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V3m0 1c5-4 9 4 14 0v10c-5 4-9-4-14 0"/></svg></span><div><span class="stat-label">Eventos en esta página</span><strong id="stat-events">—</strong><small>Catálogo de carreras</small></div></article>
+        <article class="stat"><span class="stat-icon green" aria-hidden="true">↗</span><div><span class="stat-label">Plazas disponibles</span><strong id="stat-places">—</strong><small>En los eventos de esta página</small></div></article>
+        <article class="stat"><span class="stat-icon blue"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><div><span class="stat-label">Categorías activas</span><strong id="stat-categories">—</strong><small>Encuentra tu modalidad</small></div></article>
+        <article class="stat"><span class="stat-icon purple" aria-hidden="true">✓</span><div><span class="stat-label">Inscripción en esta sesión</span><strong id="stat-registration">Sin inscripción</strong><small id="stat-registration-note">Confirma tu siguiente reto</small></div></article>
+      </section>
+      <div class="content-grid">
+        <section class="panel events-panel" id="events-section" aria-labelledby="events-title"><div class="panel-heading"><div><p class="eyebrow">ENCUENTRA TU PRÓXIMO RETO</p><h2 id="events-title">Explora los eventos</h2></div><button class="button button-quiet" id="refresh" type="button"><span aria-hidden="true">↻</span> Actualizar</button></div>
+          <div class="event-toolbar"><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Buscar eventos en esta página</span><input id="event-search" type="search" placeholder="Buscar en esta página…" maxlength="150"></label><label class="distance-filter"><span class="sr-only">Filtrar por distancia</span><select id="distance-filter"><option value="all">Todas las distancias</option><option value="5">Hasta 5 km</option><option value="10">Más de 5 a 10 km</option><option value="long">Más de 10 km</option></select></label></div>
+          <p id="events-status" class="status-message" role="status" aria-live="polite">Cargando eventos…</p><div id="events" class="event-list" aria-busy="true"></div>
+          <div class="pagination"><span id="page-number">Página 1</span><div><button class="button button-outline" id="previous" type="button" disabled aria-label="Página anterior">←</button><button class="button button-outline" id="next" type="button" disabled aria-label="Página siguiente">→</button></div></div>
+        </section>
+        <div class="right-column">
+          <section class="panel account-panel" id="account-section" aria-labelledby="account-title"><div class="panel-heading"><div><p class="eyebrow">TU PUNTO DE PARTIDA</p><h2 id="account-title">Mi cuenta</h2></div><span class="panel-symbol" aria-hidden="true">↗</span></div><p class="panel-description">Accede para asegurar tu lugar en la próxima carrera.</p>
+            <form id="account-form"><label>Nombre <span class="optional">solo al crear cuenta</span><input id="name" autocomplete="name" maxlength="100" placeholder="¿Cómo te llamas?"></label><label>Correo electrónico<input id="email" type="email" autocomplete="username" required maxlength="254" placeholder="tu@correo.com"></label><label>Contraseña<input id="password" type="password" autocomplete="current-password" required maxlength="72" placeholder="Tu contraseña"></label><div class="account-actions"><button class="button button-primary" id="login" type="submit">Entrar <span aria-hidden="true">→</span></button><button class="button button-outline" id="register" type="button">Crear cuenta</button></div></form><p id="account-status" class="status-message" role="status" aria-live="polite">Inicia sesión para inscribirte.</p><button class="button button-outline full" id="logout" type="button" hidden>Cerrar sesión</button>
+          </section>
+          <section class="panel registration-panel" id="registration-section" aria-labelledby="registration-title"><div class="panel-heading"><div><p class="eyebrow">HAZLO OFICIAL</p><h2 id="registration-title">Tu próxima carrera</h2></div><span class="step-badge">01</span></div><p class="panel-description">Elige tu evento y categoría. La confirmación descuenta un cupo disponible.</p><form id="registration-form"><label>Evento<select id="event" required><option value="">Selecciona un evento</option></select></label><label>Categoría<select id="category" required><option value="">Selecciona una categoría</option></select></label><button class="button button-primary full" id="submit-registration" type="submit">Confirmar inscripción <span aria-hidden="true">↗</span></button></form><p id="registration-status" class="status-message" role="status" aria-live="polite"></p><button class="button button-danger full" id="cancel-registration" type="button" hidden>Cancelar mi inscripción</button></section>
+        </div>
+        <section class="panel ranking-panel" id="ranking-section" aria-labelledby="ranking-title"><div class="panel-heading"><div><p class="eyebrow">CADA SEGUNDO CUENTA</p><h2 id="ranking-title">Clasificación y podio</h2></div><span class="subtle-tag">Resultados del evento</span></div><p id="ranking-status" class="status-message" role="status" aria-live="polite">Elige «Ver clasificación» en un evento para consultar sus resultados.</p><div id="ranking-empty" class="ranking-empty"><img src="/illustrations/finish-line.svg" width="120" height="90" alt="" loading="lazy"><div><h3>Consulta los tiempos registrados.</h3><p>Los resultados aparecerán cuando el organizador registre los tiempos.</p></div></div><ol id="ranking" class="ranking-list" aria-label="Resultados por posición"></ol><div id="ranking-pagination" class="pagination" hidden><span id="ranking-page-label"></span><div><button id="ranking-previous" class="button button-outline" type="button" aria-label="Resultados anteriores">←</button><button id="ranking-next" class="button button-outline" type="button" aria-label="Resultados siguientes">→</button></div></div></section>
+      </div>
+      <footer class="footer"><span><strong>racetrack</strong> © <span id="copyright-year">2026</span> · Gestión de eventos deportivos.</span><a href="/creditos.html">Ilustraciones y licencia</a></footer>
+    </main>
+  </div>
 </body></html>

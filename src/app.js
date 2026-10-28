@@ -25,11 +25,28 @@ const errorHandler =
 const app =
   express();
 
+app.disable('x-powered-by');
+const { securityHeaders, createAuthLimiter } = require('./middlewares/security');
+app.use(securityHeaders);
+
 app.use(express.static(require('node:path').join(__dirname, '..', 'public')));
 
 app.use(
-  express.json()
+  express.json({ limit: '32kb' })
 );
+
+app.use('/api', (req, res, next) => {
+  if (req.body !== undefined && (req.body === null || Array.isArray(req.body) || typeof req.body !== 'object')) {
+    return res.status(400).json({ status: 'error', message: 'El cuerpo debe ser un objeto JSON.' });
+  }
+  next();
+});
+app.use('/api/v1/users', createAuthLimiter());
+
+app.get('/ready', (req, res) => {
+  const connected = require('mongoose').connection.readyState === 1;
+  res.status(connected ? 200 : 503).json({ status: connected ? 'ok' : 'unavailable', demonstration: /^racetrack_demo_/.test(process.env.MONGODB_DB || '') });
+});
 
 app.get(
   '/health',
