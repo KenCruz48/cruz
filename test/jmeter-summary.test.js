@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { summarizeJmeter } = require('../qa/acceptance');
+const { summarizeJmeter, clearResultCollectorFilename } = require('../qa/acceptance');
 
 const endpointLabels = [
   'POST - Crear evento',
@@ -51,4 +51,23 @@ test('counts exactly the five business and three preparation labels', () => {
   assert.deepEqual(summary.endpointSamples, Object.fromEntries(
     endpointLabels.map(label => [label, 1])
   ));
+});
+
+test('clears embedded JMeter result paths without changing other plan filenames', () => {
+  const jmx = [
+    '<jmeterTestPlan>',
+    '<ResultCollector testname="JTL CSV">',
+    '<stringProp name="filename">C:\\\\repo\\\\performance\\\\plan.jmx</stringProp>',
+    '</ResultCollector>',
+    '<JSR223PreProcessor>',
+    '<stringProp name="filename">script.groovy</stringProp>',
+    '</JSR223PreProcessor>',
+    '</jmeterTestPlan>',
+  ].join('');
+
+  const sanitized = clearResultCollectorFilename(jmx);
+
+  assert.match(sanitized, /<ResultCollector[\s\S]*?<stringProp name="filename"><\/stringProp>/);
+  assert.match(sanitized, /<JSR223PreProcessor[\s\S]*?<stringProp name="filename">script\.groovy<\/stringProp>/);
+  assert.doesNotMatch(sanitized, /C:\\\\repo\\\\performance\\\\plan\.jmx/);
 });

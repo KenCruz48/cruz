@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "generatedAt": "2026-10-28T15:54:14.383Z",
+  "generatedAt": "2026-10-28T19:41:07.026Z",
   "jmeterVersion": "5.6.3",
   "jmeterHome": "D:\\DOCUMENTOS USUARIO\\Downloads\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3",
   "javaExecutable": "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath\\java.exe",
@@ -30,11 +30,11 @@
       "failed": 0,
       "totalFailed": 0,
       "errorPercent": 0,
-      "minMs": 6,
-      "averageMs": 12.3,
-      "p95Ms": 17,
-      "maxMs": 273,
-      "throughputPerSecond": 54.20641803989592,
+      "minMs": 7,
+      "averageMs": 17.44,
+      "p95Ms": 31,
+      "maxMs": 36,
+      "throughputPerSecond": 54.030689431597146,
       "preparationSamples": 3
     },
     "stress": {
@@ -54,11 +54,11 @@
       "failed": 0,
       "totalFailed": 0,
       "errorPercent": 0,
-      "minMs": 10,
-      "averageMs": 113.1092,
-      "p95Ms": 201,
-      "maxMs": 282,
-      "throughputPerSecond": 176.23008600028197,
+      "minMs": 8,
+      "averageMs": 92.6436,
+      "p95Ms": 180,
+      "maxMs": 219,
+      "throughputPerSecond": 189.8109482954977,
       "preparationSamples": 3
     }
   },

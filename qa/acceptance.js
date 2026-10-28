@@ -244,6 +244,25 @@ function configureThreadGroup(jmx, name, enabled, { threads, ramp, loops }) {
   });
 }
 
+function clearResultCollectorFilename(jmx) {
+  let collectorCount = 0;
+  let filenameCount = 0;
+  const updated = jmx.replace(/<ResultCollector\b[^>]*>[\s\S]*?<\/ResultCollector>/g, collector => {
+    collectorCount += 1;
+    return collector.replace(
+      /(<stringProp name="filename">)[\s\S]*?(<\/stringProp>)/,
+      (_match, openingTag, closingTag) => {
+        filenameCount += 1;
+        return `${openingTag}${closingTag}`;
+      }
+    );
+  });
+  if (collectorCount === 0 || filenameCount !== collectorCount) {
+    throw new Error('El plan JMeter debe tener un nombre de archivo definido para cada ResultCollector');
+  }
+  return updated;
+}
+
 function getJavaMajorVersion(java) {
   const result = spawnSync(java, ['-version'], {
     encoding: 'utf8',
@@ -380,6 +399,7 @@ async function runJmeter(baseUrl, fixture) {
         ramp: mode === 'stress' ? ramp : 10,
         loops,
       });
+      jmx = clearResultCollectorFilename(jmx);
       fs.writeFileSync(planPath, jmx);
       fs.rmSync(jtlPath, { force: true });
       await execute(java, [
@@ -530,4 +550,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { summarizeJmeter };
+module.exports = { summarizeJmeter, clearResultCollectorFilename };

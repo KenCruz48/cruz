@@ -1,254 +1,254 @@
 timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
-1793202825478,416,POST - Login organizador,200,OK,Preparación - JWT y categoría 1-1,text,true,,609,254,1,1,http://127.0.0.1:36911/api/v1/users/login,411,0,40
-1793202826022,366,POST - Login corredor,200,OK,Preparación - JWT y categoría 1-1,text,true,,607,255,1,1,http://127.0.0.1:36911/api/v1/users/login,366,0,0
-1793202826407,48,POST - Crear categoría,201,Created,Preparación - JWT y categoría 1-1,text,true,,502,292,1,1,http://127.0.0.1:36911/api/v1/categories,48,0,0
-1793202826507,11,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,11,0,2
-1793202826519,18,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,18,0,0
-1793202826538,12,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239a8,12,0,0
-1793202826551,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239a8/participants,9,0,0
-1793202826561,10,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,10,0,0
-1793202826572,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202826582,13,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,13,0,0
-1793202826596,9,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239ab,9,0,0
-1793202826606,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239ab/participants,9,0,0
-1793202826615,11,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,11,0,0
-1793202826626,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,8,0,0
-1793202826635,15,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,15,0,0
-1793202826651,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239ae,11,0,0
-1793202826663,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239ae/participants,9,0,0
-1793202826673,11,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,11,0,0
-1793202826684,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,8,0,0
-1793202826693,14,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,14,0,0
-1793202826707,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239b1,9,0,0
-1793202826717,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239b1/participants,9,0,0
-1793202826727,11,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,10,0,0
-1793202826738,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202826748,17,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,17,0,0
-1793202826766,8,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239b4,8,0,0
-1793202826774,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239b4/participants,11,0,0
-1793202826785,10,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,9,0,0
-1793202826795,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,8,0,0
-1793202826804,14,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,14,0,0
-1793202826819,9,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239b7,9,0,0
-1793202826828,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239b7/participants,10,0,0
-1793202826838,11,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,10,0,0
-1793202826849,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,8,0,0
-1793202826858,12,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,12,0,0
-1793202826871,9,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239ba,9,0,0
-1793202826881,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239ba/participants,9,0,0
-1793202826891,9,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,9,0,0
-1793202826901,6,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,6,0,0
-1793202826908,14,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,13,0,0
-1793202826922,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239bd,9,0,0
-1793202826932,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239bd/participants,9,0,0
-1793202826942,10,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,10,0,0
-1793202826953,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,8,0,0
-1793202826962,12,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,12,0,0
-1793202826975,9,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239c0,9,0,0
-1793202826984,8,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8af5cb67af89f239c0/participants,8,0,0
-1793202826993,10,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,10,0,0
-1793202827004,7,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,7,0,0
-1793202827012,13,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,13,0,0
-1793202827025,8,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8bf5cb67af89f239c3,8,0,0
-1793202827033,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8bf5cb67af89f239c3/participants,9,0,0
-1793202827043,10,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,10,0,0
-1793202827508,273,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,273,0,2
-1793202827782,21,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,20,0,0
-1793202827804,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8bf5cb67af89f239c6,11,0,0
-1793202827815,13,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8bf5cb67af89f239c6/participants,13,0,0
-1793202827829,15,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,15,0,0
-1793202827845,10,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,10,0,0
-1793202827856,11,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,11,0,0
-1793202827868,9,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8bf5cb67af89f239c9,9,0,0
-1793202827878,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8bf5cb67af89f239c9/participants,11,0,0
-1793202827890,8,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,8,0,0
-1793202827898,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,8,0,0
-1793202827907,12,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,11,0,0
-1793202827919,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8bf5cb67af89f239cc,11,0,0
-1793202827930,8,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8bf5cb67af89f239cc/participants,8,0,0
-1793202827939,10,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,10,0,0
-1793202827950,7,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,7,0,0
-1793202827957,12,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,12,0,0
-1793202827970,8,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8bf5cb67af89f239cf,8,0,0
-1793202827979,8,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8bf5cb67af89f239cf/participants,8,0,0
-1793202827988,10,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,10,0,0
-1793202827998,7,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,7,0,0
-1793202828005,13,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,13,0,0
-1793202828019,8,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239d2,8,0,0
-1793202828027,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239d2/participants,8,0,0
-1793202828036,9,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,9,0,0
-1793202828045,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202828055,13,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,13,0,0
-1793202828069,9,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239d5,9,0,0
-1793202828079,6,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239d5/participants,6,0,0
-1793202828086,10,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,10,0,0
-1793202828096,7,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,7,0,0
-1793202828104,14,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,14,0,0
-1793202828119,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239d8,10,0,0
-1793202828129,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239d8/participants,11,0,0
-1793202828141,15,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,14,0,0
-1793202828156,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202828166,16,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,16,0,0
-1793202828183,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239db,11,0,0
-1793202828195,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239db/participants,10,0,0
-1793202828206,11,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,11,0,0
-1793202828218,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,8,0,0
-1793202828227,15,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,15,0,0
-1793202828242,12,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239de,12,0,0
-1793202828254,13,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239de/participants,13,0,0
-1793202828267,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,12,0,0
-1793202828280,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202828289,18,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,18,0,0
-1793202828308,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239e1,11,0,0
-1793202828319,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239e1/participants,11,0,0
-1793202828331,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,13,0,0
-1793202828508,11,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,11,0,2
-1793202828520,17,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,17,0,0
-1793202828538,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239e4,10,0,0
-1793202828548,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239e4/participants,10,0,0
-1793202828558,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,12,0,0
-1793202828570,7,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,7,0,0
-1793202828578,15,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,15,0,0
-1793202828593,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239e7,10,0,0
-1793202828604,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239e7/participants,9,0,0
-1793202828613,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,12,0,0
-1793202828625,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,8,0,0
-1793202828634,14,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,14,0,0
-1793202828649,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239ea,11,0,0
-1793202828660,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239ea/participants,10,0,0
-1793202828671,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,12,0,0
-1793202828683,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,8,0,0
-1793202828692,14,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,14,0,0
-1793202828707,9,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239ed,9,0,0
-1793202828717,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239ed/participants,9,0,0
-1793202828727,11,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,11,0,0
-1793202828739,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202828749,16,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,16,0,0
-1793202828765,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239f0,11,0,0
-1793202828777,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239f0/participants,9,0,0
-1793202828787,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,13,0,0
-1793202828802,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202828812,16,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,16,0,0
-1793202828829,14,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239f3,14,0,0
-1793202828843,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239f3/participants,11,0,0
-1793202828855,11,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,11,0,0
-1793202828867,10,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,10,0,0
-1793202828878,15,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,15,0,0
-1793202828893,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239f6,11,0,0
-1793202828904,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239f6/participants,10,0,0
-1793202828915,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,12,0,0
-1793202828928,10,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,10,0,0
-1793202828939,16,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,16,0,0
-1793202828956,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239f9,11,0,0
-1793202828968,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239f9/participants,11,0,0
-1793202828979,11,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,11,0,0
-1793202828991,7,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,7,0,0
-1793202828999,16,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,16,0,0
-1793202829016,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239fc,10,0,0
-1793202829027,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8cf5cb67af89f239fc/participants,10,0,0
-1793202829037,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,12,0,0
-1793202829049,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,8,0,0
-1793202829058,16,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,16,0,0
-1793202829075,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f239ff,10,0,0
-1793202829086,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f239ff/participants,10,0,0
-1793202829097,11,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,11,0,0
-1793202829507,11,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,11,0,2
-1793202829518,15,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,15,0,0
-1793202829534,9,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a02,9,0,0
-1793202829543,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a02/participants,9,0,0
-1793202829552,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,13,0,0
-1793202829566,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,8,0,0
-1793202829574,13,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,13,0,0
-1793202829588,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a05,10,0,0
-1793202829598,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a05/participants,9,0,0
-1793202829607,11,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,11,0,0
-1793202829619,7,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,7,0,0
-1793202829627,14,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,14,0,0
-1793202829642,8,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a08,8,0,0
-1793202829650,8,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a08/participants,8,0,0
-1793202829658,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,12,0,0
-1793202829671,7,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,7,0,0
-1793202829679,14,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,14,0,0
-1793202829693,12,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a0b,12,0,0
-1793202829705,13,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a0b/participants,13,0,0
-1793202829718,14,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,14,0,0
-1793202829733,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,8,0,0
-1793202829742,19,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,19,0,0
-1793202829762,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a0e,10,0,0
-1793202829773,13,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a0e/participants,13,0,0
-1793202829787,15,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,15,0,0
-1793202829802,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202829812,18,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,18,0,0
-1793202829831,12,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a11,12,0,0
-1793202829844,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a11/participants,12,0,0
-1793202829856,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,13,0,0
-1793202829870,11,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,11,0,0
-1793202829882,17,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,17,0,0
-1793202829900,12,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a14,12,0,0
-1793202829912,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a14/participants,12,0,0
-1793202829924,15,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,15,0,0
-1793202829939,10,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,10,0,0
-1793202829950,16,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,16,0,0
-1793202829967,13,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a17,13,0,0
-1793202829980,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8df5cb67af89f23a17/participants,12,0,0
-1793202829992,15,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,14,0,0
-1793202830007,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202830017,18,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,18,0,0
-1793202830036,12,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a1a,12,0,0
-1793202830049,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a1a/participants,12,0,0
-1793202830062,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,13,0,0
-1793202830076,10,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,10,0,0
-1793202830087,20,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,20,0,0
-1793202830108,12,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a1d,12,0,0
-1793202830121,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a1d/participants,12,0,0
-1793202830133,15,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,15,0,0
-1793202830508,11,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,11,0,2
-1793202830520,17,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,17,0,0
-1793202830538,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a20,11,0,0
-1793202830549,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a20/participants,11,0,0
-1793202830561,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,12,0,0
-1793202830574,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202830583,17,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,17,0,0
-1793202830601,13,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a23,13,0,0
-1793202830614,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a23/participants,12,0,0
-1793202830627,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,13,0,0
-1793202830640,10,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,10,0,0
-1793202830651,18,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,18,0,0
-1793202830670,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a26,11,0,0
-1793202830682,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a26/participants,11,0,0
-1793202830693,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,13,0,0
-1793202830707,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202830717,16,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,16,0,0
-1793202830734,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a29,10,0,0
-1793202830744,13,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a29/participants,13,0,0
-1793202830757,14,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,14,0,0
-1793202830772,10,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,10,0,0
-1793202830783,15,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,14,0,0
-1793202830798,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a2c,11,0,0
-1793202830810,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a2c/participants,10,0,0
-1793202830821,10,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,10,0,0
-1793202830832,7,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,7,0,0
-1793202830840,16,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,16,0,0
-1793202830856,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a2f,11,0,0
-1793202830867,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a2f/participants,11,0,0
-1793202830879,10,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,10,0,0
-1793202830890,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202830900,15,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,15,0,0
-1793202830916,9,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a32,9,0,0
-1793202830925,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a32/participants,10,0,0
-1793202830935,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,12,0,0
-1793202830948,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202830958,17,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,17,0,0
-1793202830975,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a35,10,0,0
-1793202830986,8,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ef5cb67af89f23a35/participants,8,0,0
-1793202830994,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,12,0,0
-1793202831007,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202831016,14,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,14,0,0
-1793202831031,9,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ff5cb67af89f23a38,9,0,0
-1793202831041,8,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ff5cb67af89f23a38/participants,8,0,0
-1793202831050,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,12,0,0
-1793202831063,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,565,590,1,1,http://127.0.0.1:36911/api/v1/events,9,0,0
-1793202831072,14,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,524,528,1,1,http://127.0.0.1:36911/api/v1/registrations,14,0,0
-1793202831087,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,615,535,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ff5cb67af89f23a3b,10,0,0
-1793202831098,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,501,428,1,1,http://127.0.0.1:36911/api/v1/events/6ae21a8ff5cb67af89f23a3b/participants,9,0,0
-1793202831108,11,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,620,542,1,1,http://127.0.0.1:36911/api/v1/results,11,0,0
+1793216439027,601,POST - Login organizador,200,OK,Preparación - JWT y categoría 1-1,text,true,,1058,253,1,1,http://127.0.0.1:6559/api/v1/users/login,595,0,63
+1793216439788,452,POST - Login corredor,200,OK,Preparación - JWT y categoría 1-1,text,true,,1056,254,1,1,http://127.0.0.1:6559/api/v1/users/login,452,0,0
+1793216440263,95,POST - Crear categoría,201,Created,Preparación - JWT y categoría 1-1,text,true,,951,550,1,1,http://127.0.0.1:6559/api/v1/categories,95,0,0
+1793216440542,32,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,32,0,7
+1793216440579,25,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,25,0,0
+1793216440605,29,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb8a182eee26d02cd13,29,0,0
+1793216440635,26,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb8a182eee26d02cd13/participants,26,0,0
+1793216440662,36,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,35,0,0
+1793216440699,14,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,14,0,0
+1793216440715,29,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,29,0,0
+1793216440745,30,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb8a182eee26d02cd16,30,0,0
+1793216440776,13,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb8a182eee26d02cd16/participants,13,0,0
+1793216440790,16,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,16,0,0
+1793216440807,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216440824,32,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,32,0,0
+1793216440857,28,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb8a182eee26d02cd19,28,0,0
+1793216440886,14,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb8a182eee26d02cd19/participants,14,0,0
+1793216440902,15,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,15,0,0
+1793216440918,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,14,0,0
+1793216440933,31,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,31,0,0
+1793216440965,15,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb8a182eee26d02cd1c,15,0,0
+1793216440981,14,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb8a182eee26d02cd1c/participants,14,0,0
+1793216440996,31,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,30,0,0
+1793216441029,14,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,14,0,0
+1793216441044,27,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,27,0,0
+1793216441072,30,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd1f,30,0,0
+1793216441103,15,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd1f/participants,15,0,0
+1793216441119,15,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,15,0,0
+1793216441135,14,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,14,0,0
+1793216441150,30,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,30,0,0
+1793216441182,14,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd22,14,0,0
+1793216441197,15,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd22/participants,14,0,0
+1793216441212,31,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,31,0,0
+1793216441244,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216441260,29,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,29,0,0
+1793216441291,30,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd25,30,0,0
+1793216441322,16,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd25/participants,16,0,0
+1793216441339,29,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,28,0,0
+1793216441369,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216441384,32,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,32,0,0
+1793216441417,15,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd28,15,0,0
+1793216441432,13,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd28/participants,13,0,0
+1793216441447,29,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,29,0,0
+1793216441478,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216441494,30,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,30,0,0
+1793216441524,15,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,1064,534,2,2,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd2b,15,0,0
+1793216441538,17,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,1014,589,2,2,http://127.0.0.1:6559/api/v1/events,17,0,2
+1793216441540,17,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,950,427,2,2,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd2b/participants,17,0,0
+1793216441557,31,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,1069,541,2,2,http://127.0.0.1:6559/api/v1/results,31,0,0
+1793216441556,33,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,973,527,2,2,http://127.0.0.1:6559/api/v1/registrations,33,0,0
+1793216441589,14,POST - Crear evento,201,Created,Carga - Rutas privadas 1-1,text,true,,1014,589,2,2,http://127.0.0.1:6559/api/v1/events,14,0,0
+1793216441590,30,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,1064,534,2,2,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd2d,29,0,0
+1793216441604,23,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-1,text,true,,973,527,2,2,http://127.0.0.1:6559/api/v1/registrations,23,0,0
+1793216441621,16,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,950,427,2,2,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd2d/participants,16,0,0
+1793216441628,24,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-1,text,true,,1064,534,2,2,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd30,24,0,0
+1793216441638,29,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,1069,541,2,2,http://127.0.0.1:6559/api/v1/results,29,0,0
+1793216441653,15,GET - Participantes,200,OK,Carga - Rutas privadas 1-1,text,true,,950,427,2,2,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd30/participants,15,0,0
+1793216441668,13,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,1014,589,2,2,http://127.0.0.1:6559/api/v1/events,13,0,0
+1793216441669,19,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-1,text,true,,1069,541,2,2,http://127.0.0.1:6559/api/v1/results,19,0,0
+1793216441682,31,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,31,0,0
+1793216441713,15,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd33,15,0,0
+1793216441729,14,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd33/participants,14,0,0
+1793216441744,17,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,17,0,0
+1793216441762,13,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,13,0,0
+1793216441776,30,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,29,0,0
+1793216441806,33,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd37,33,0,0
+1793216441840,13,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd37/participants,13,0,0
+1793216441854,29,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,29,0,0
+1793216441884,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216441899,32,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,32,0,0
+1793216441932,15,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd3a,15,0,0
+1793216441948,15,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd3a/participants,15,0,0
+1793216441963,31,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,31,0,0
+1793216441995,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216442011,30,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,30,0,0
+1793216442043,30,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd3d,30,0,0
+1793216442074,17,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fb9a182eee26d02cd3d/participants,17,0,0
+1793216442092,27,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,27,0,0
+1793216442120,14,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,14,0,0
+1793216442135,32,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,32,0,0
+1793216442168,14,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd40,14,0,0
+1793216442182,14,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd40/participants,14,0,0
+1793216442197,16,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,16,0,0
+1793216442214,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216442230,30,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,30,0,0
+1793216442261,15,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd43,15,0,0
+1793216442277,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd43/participants,11,0,0
+1793216442289,18,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,18,0,0
+1793216442308,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216442324,29,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,29,0,0
+1793216442354,16,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd46,16,0,0
+1793216442371,13,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd46/participants,13,0,0
+1793216442385,15,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,15,0,0
+1793216442400,16,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,16,0,0
+1793216442417,15,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,15,0,0
+1793216442433,15,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd49,15,0,0
+1793216442449,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd49/participants,11,0,0
+1793216442460,19,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,19,0,0
+1793216442480,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-2,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216442496,30,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-2,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,30,0,0
+1793216442527,16,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-2,text,true,,1064,534,2,2,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd4c,15,0,0
+1793216442541,16,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,1014,589,2,2,http://127.0.0.1:6559/api/v1/events,16,0,2
+1793216442543,20,GET - Participantes,200,OK,Carga - Rutas privadas 1-2,text,true,,950,427,2,2,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd4c/participants,20,0,0
+1793216442565,24,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-2,text,true,,1069,541,2,2,http://127.0.0.1:6559/api/v1/results,23,0,0
+1793216442558,32,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,973,527,2,2,http://127.0.0.1:6559/api/v1/registrations,32,0,0
+1793216442591,29,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd4e,29,0,0
+1793216442621,13,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd4e/participants,13,0,0
+1793216442634,17,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,17,0,0
+1793216442651,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216442667,30,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,30,0,0
+1793216442697,15,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd52,15,0,0
+1793216442713,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd52/participants,11,0,0
+1793216442725,19,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,19,0,0
+1793216442744,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216442759,31,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,31,0,0
+1793216442791,14,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd55,14,0,0
+1793216442805,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd55/participants,11,0,0
+1793216442816,21,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,21,0,0
+1793216442837,16,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,16,0,0
+1793216442854,30,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,30,0,0
+1793216442885,16,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd58,16,0,0
+1793216442902,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd58/participants,11,0,0
+1793216442914,19,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,19,0,0
+1793216442934,14,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,14,0,0
+1793216442949,30,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,30,0,0
+1793216442980,15,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd5b,15,0,0
+1793216442995,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbaa182eee26d02cd5b/participants,12,0,0
+1793216443008,20,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,20,0,0
+1793216443029,13,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,13,0,0
+1793216443043,31,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,31,0,0
+1793216443075,14,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd5e,14,0,0
+1793216443090,13,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd5e/participants,13,0,0
+1793216443104,17,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,17,0,0
+1793216443122,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216443138,31,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,31,0,0
+1793216443169,15,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd61,15,0,0
+1793216443185,14,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd61/participants,14,0,0
+1793216443200,16,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,16,0,0
+1793216443217,15,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,15,0,0
+1793216443233,30,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,30,0,0
+1793216443263,16,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd64,16,0,0
+1793216443280,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd64/participants,11,0,0
+1793216443291,20,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,20,0,0
+1793216443312,14,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,14,0,0
+1793216443327,30,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,30,0,0
+1793216443358,16,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd67,16,0,0
+1793216443374,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd67/participants,12,0,0
+1793216443386,18,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,18,0,0
+1793216443405,16,POST - Crear evento,201,Created,Carga - Rutas privadas 1-3,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,16,0,0
+1793216443421,33,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-3,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,33,0,0
+1793216443455,29,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-3,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd6a,29,0,0
+1793216443484,18,GET - Participantes,200,OK,Carga - Rutas privadas 1-3,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd6a/participants,17,0,0
+1793216443502,29,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-3,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,29,0,0
+1793216443546,30,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,30,0,4
+1793216443577,31,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,31,0,0
+1793216443608,16,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd6d,16,0,0
+1793216443625,15,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd6d/participants,15,0,0
+1793216443641,28,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,28,0,0
+1793216443669,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,9,0,0
+1793216443679,29,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,29,0,0
+1793216443709,13,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd70,13,0,0
+1793216443722,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd70/participants,12,0,0
+1793216443734,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,13,0,0
+1793216443747,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,8,0,0
+1793216443756,17,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,17,0,0
+1793216443774,12,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd73,12,0,0
+1793216443786,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd73/participants,12,0,0
+1793216443799,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,12,0,0
+1793216443811,10,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,10,0,0
+1793216443822,25,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,25,0,0
+1793216443848,12,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd76,12,0,0
+1793216443860,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd76/participants,12,0,0
+1793216443873,14,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,13,0,0
+1793216443887,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,9,0,0
+1793216443897,16,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,16,0,0
+1793216443914,13,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd79,13,0,0
+1793216443928,11,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd79/participants,11,0,0
+1793216443940,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,12,0,0
+1793216443953,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,9,0,0
+1793216443963,16,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,16,0,0
+1793216443980,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd7c,10,0,0
+1793216443991,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbba182eee26d02cd7c/participants,12,0,0
+1793216444004,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,13,0,0
+1793216444018,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,9,0,0
+1793216444028,18,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,17,0,0
+1793216444046,13,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd7f,13,0,0
+1793216444059,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd7f/participants,12,0,0
+1793216444071,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,12,0,0
+1793216444084,10,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,10,0,0
+1793216444095,18,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,18,0,0
+1793216444114,13,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd82,13,0,0
+1793216444128,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd82/participants,12,0,0
+1793216444140,15,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,15,0,0
+1793216444155,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,9,0,0
+1793216444165,15,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,15,0,0
+1793216444181,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd85,11,0,0
+1793216444193,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd85/participants,9,0,0
+1793216444203,14,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,14,0,0
+1793216444218,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-4,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,9,0,0
+1793216444227,16,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-4,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,16,0,0
+1793216444244,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-4,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd88,11,0,0
+1793216444255,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-4,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd88/participants,9,0,0
+1793216444265,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-4,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,13,0,0
+1793216444541,11,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,11,0,2
+1793216444553,17,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,17,0,0
+1793216444571,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd8b,11,0,0
+1793216444583,13,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd8b/participants,13,0,0
+1793216444596,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,13,0,0
+1793216444610,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,8,0,0
+1793216444619,17,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,17,0,0
+1793216444636,10,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd8e,10,0,0
+1793216444647,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd8e/participants,10,0,0
+1793216444658,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,13,0,0
+1793216444672,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,8,0,0
+1793216444680,17,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,17,0,0
+1793216444698,13,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd91,12,0,0
+1793216444711,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd91/participants,12,0,0
+1793216444723,14,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,14,0,0
+1793216444737,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,8,0,0
+1793216444745,18,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,18,0,0
+1793216444764,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd94,11,0,0
+1793216444776,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd94/participants,10,0,0
+1793216444786,13,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,13,0,0
+1793216444800,11,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,11,0,0
+1793216444812,17,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,17,0,0
+1793216444829,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd97,11,0,0
+1793216444841,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd97/participants,9,0,0
+1793216444851,14,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,14,0,0
+1793216444866,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,9,0,0
+1793216444875,18,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,18,0,0
+1793216444893,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd9a,11,0,0
+1793216444904,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd9a/participants,11,0,0
+1793216444916,15,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,15,0,0
+1793216444931,8,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,8,0,0
+1793216444939,17,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,17,0,0
+1793216444956,13,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd9d,13,0,0
+1793216444969,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cd9d/participants,10,0,0
+1793216444980,10,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,10,0,0
+1793216444991,7,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,7,0,0
+1793216444999,18,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,18,0,0
+1793216445018,11,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cda0,10,0,0
+1793216445029,10,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbca182eee26d02cda0/participants,10,0,0
+1793216445039,12,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,12,0,0
+1793216445052,13,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,13,0,0
+1793216445066,18,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,18,0,0
+1793216445084,9,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbda182eee26d02cda3,9,0,0
+1793216445094,9,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbda182eee26d02cda3/participants,9,0,0
+1793216445103,9,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,9,0,0
+1793216445112,9,POST - Crear evento,201,Created,Carga - Rutas privadas 1-5,text,true,,1014,589,1,1,http://127.0.0.1:6559/api/v1/events,9,0,0
+1793216445122,13,POST - Crear inscripción,201,Created,Carga - Rutas privadas 1-5,text,true,,973,527,1,1,http://127.0.0.1:6559/api/v1/registrations,13,0,0
+1793216445136,9,PATCH - Actualizar evento,200,OK,Carga - Rutas privadas 1-5,text,true,,1064,534,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbda182eee26d02cda6,9,0,0
+1793216445145,12,GET - Participantes,200,OK,Carga - Rutas privadas 1-5,text,true,,950,427,1,1,http://127.0.0.1:6559/api/v1/events/6ae24fbda182eee26d02cda6/participants,12,0,0
+1793216445158,11,POST - Registrar resultado,201,Created,Carga - Rutas privadas 1-5,text,true,,1069,541,1,1,http://127.0.0.1:6559/api/v1/results,11,0,0
