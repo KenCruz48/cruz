@@ -7,10 +7,10 @@
       "samples": 50,
       "failed": 0,
       "errorPercent": 0,
-      "averageMs": 9.02,
-      "p95Ms": 12,
-      "maxMs": 97,
-      "throughputPerSecond": 13.273161667109106
+      "averageMs": 8.78,
+      "p95Ms": 10,
+      "maxMs": 98,
+      "throughputPerSecond": 13.068478829064297
     },
     "stress": {
       "threads": 50,
@@ -19,10 +19,10 @@
       "samples": 500,
       "failed": 0,
       "errorPercent": 0,
-      "averageMs": 7.874,
-      "p95Ms": 16,
-      "maxMs": 97,
-      "throughputPerSecond": 105.52975939214859
+      "averageMs": 8.586,
+      "p95Ms": 25,
+      "maxMs": 109,
+      "throughputPerSecond": 106.36034886194426
     }
   },
   "interpretation": "Carga y estrés en equipo local con datos no vacíos. No se alcanzó necesariamente saturación: estas métricas no estiman capacidad de Atlas ni producción."
