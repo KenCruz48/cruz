@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "generatedAt": "2026-10-28T15:54:14.383Z",
+  "jmeterVersion": "5.6.3",
+  "jmeterHome": "D:\\DOCUMENTOS USUARIO\\Downloads\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3",
+  "javaExecutable": "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath\\java.exe",
+  "javaMajorVersion": 21,
+  "routes": [
+    "POST - Crear evento",
+    "POST - Crear inscripción",
+    "PATCH - Actualizar evento",
+    "GET - Participantes",
+    "POST - Registrar resultado"
+  ],
+  "results": {
+    "load": {
+      "threads": 5,
+      "rampSeconds": 5,
+      "loops": 10,
+      "samples": 250,
+      "totalSamples": 253,
+      "samplesPerEndpoint": 50,
+      "endpointSamples": {
+        "POST - Crear evento": 50,
+        "POST - Crear inscripción": 50,
+        "PATCH - Actualizar evento": 50,
+        "GET - Participantes": 50,
+        "POST - Registrar resultado": 50
+      },
+      "failed": 0,
+      "totalFailed": 0,
+      "errorPercent": 0,
+      "minMs": 6,
+      "averageMs": 12.3,
+      "p95Ms": 17,
+      "maxMs": 273,
+      "throughputPerSecond": 54.20641803989592,
+      "preparationSamples": 3
+    },
+    "stress": {
+      "threads": 50,
+      "rampSeconds": 10,
+      "loops": 10,
+      "samples": 2500,
+      "totalSamples": 2503,
+      "samplesPerEndpoint": 500,
+      "endpointSamples": {
+        "POST - Crear evento": 500,
+        "POST - Crear inscripción": 500,
+        "PATCH - Actualizar evento": 500,
+        "GET - Participantes": 500,
+        "POST - Registrar resultado": 500
+      },
+      "failed": 0,
+      "totalFailed": 0,
+      "errorPercent": 0,
+      "minMs": 10,
+      "averageMs": 113.1092,
+      "p95Ms": 201,
+      "maxMs": 282,
+      "throughputPerSecond": 176.23008600028197,
+      "preparationSamples": 3
+    }
+  },
+  "interpretation": "Resultados de API local con MongoDB temporal; no representan capacidad de producción ni de Atlas."
+}

@@ -1,0 +1,417 @@
+{
+  "info": {
+    "_postman_id": "ac378756-0d1f-4494-b64a-afaca4b8627e",
+    "name": "Racetrack API - RACE-45",
+    "description": "Pruebas reproducibles de autenticación, categorías, eventos y rutas protegidas. Los usuarios los prepara el fixture temporal de QA.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "GET Health - 200",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Responde HTTP 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Devuelve estado ok', function () { pm.expect(pm.response.json().status).to.eql('ok'); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/health"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Autenticación",
+      "item": [
+        {
+          "name": "POST Login - credenciales inválidas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Rechaza credenciales inválidas con HTTP 401', function () { pm.response.to.have.status(401); });",
+                  "pm.test('La respuesta es JSON', function () { pm.response.to.be.json; });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"correo-inexistente@example.invalid\",\n  \"password\": \"Credencial-QA-invalida!\"\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/users/login"
+          },
+          "response": []
+        },
+        {
+          "name": "POST Login - organizador del fixture",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('El organizador inicia sesión con HTTP 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Devuelve un JWT no vacío', function () { const body = pm.response.json(); pm.expect(body.status).to.eql('success'); pm.expect(body.data.token).to.be.a('string').and.not.empty; pm.environment.set('ownerToken', body.data.token); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{ownerEmail}}\",\n  \"password\": \"{{ownerPassword}}\"\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/users/login"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Categorías",
+      "item": [
+        {
+          "name": "GET Listar categorías",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Lista categorías con HTTP 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('La respuesta incluye datos y paginación', function () { const body = pm.response.json(); pm.expect(body.status).to.eql('success'); pm.expect(body.data).to.be.an('array'); pm.expect(body.pagination).to.include({ page: 1, limit: 10 }); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/v1/categories?page=1&limit=10"
+          },
+          "response": []
+        },
+        {
+          "name": "GET Categoría con ID inválido",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Rechaza ID inválido con HTTP 400', function () { pm.response.to.have.status(400); });",
+                  "pm.test('La respuesta contiene un mensaje de error', function () { pm.expect(pm.response.json()).to.have.property('message'); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/v1/categories/id-invalido"
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear categoría para esta ejecución",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Crea la categoría del caso con HTTP 201', function () { pm.response.to.have.status(201); });",
+                  "pm.test('Guarda el ID recién creado para las solicitudes dependientes', function () { const body = pm.response.json(); pm.expect(body.status).to.eql('success'); pm.expect(body.data.name).to.eql(pm.environment.get('categoryName')); pm.expect(body.data._id).to.be.a('string').and.not.empty; pm.environment.set('categoryId', body.data._id); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"{{categoryName}}\",\n  \"description\": \"Categoría desechable de Newman\"\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/categories"
+          },
+          "response": []
+        },
+        {
+          "name": "GET Consultar categoría recién creada",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Consulta la categoría creada con HTTP 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('El ID y nombre corresponden al alta de esta ejecución', function () { const body = pm.response.json(); pm.expect(body.data._id).to.eql(pm.environment.get('categoryId')); pm.expect(body.data.name).to.eql(pm.environment.get('categoryName')); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/v1/categories/{{categoryId}}"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Eventos y rutas protegidas",
+      "item": [
+        {
+          "name": "GET Listar eventos",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Lista eventos con HTTP 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('La respuesta incluye la lista y paginación', function () { const body = pm.response.json(); pm.expect(body.status).to.eql('success'); pm.expect(body.data.events).to.be.an('array'); pm.expect(body.data).to.have.property('page'); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/v1/events?page=1&limit=10"
+          },
+          "response": []
+        },
+        {
+          "name": "GET Evento con ID inválido",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Rechaza ID inválido con HTTP 400', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/v1/events/id-invalido"
+          },
+          "response": []
+        },
+        {
+          "name": "GET Ranking con ID inválido",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Rechaza ID inválido con HTTP 400', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/v1/events/id-invalido/ranking"
+          },
+          "response": []
+        },
+        {
+          "name": "GET Participantes sin token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Requiere JWT y responde HTTP 401', function () { pm.response.to.have.status(401); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/v1/events/{{fixtureEventId}}/participants"
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear evento como organizador",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Crea evento autenticado con HTTP 201', function () { pm.response.to.have.status(201); });",
+                  "pm.test('Guarda el ID del evento nuevo', function () { const body = pm.response.json(); pm.expect(body.status).to.eql('success'); pm.expect(body.data.name).to.eql(pm.environment.get('eventName')); pm.expect(body.data.id).to.be.a('string').and.not.empty; pm.environment.set('eventId', body.data.id); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ownerToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"{{eventName}}\",\n  \"date\": \"2099-06-15T09:00:00.000Z\",\n  \"location\": \"Pista Newman\",\n  \"distance\": 5,\n  \"capacity\": 100\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/events"
+          },
+          "response": []
+        },
+        {
+          "name": "GET Participantes con JWT del organizador",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Permite al organizador consultar participantes con HTTP 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Devuelve una lista de participantes', function () { const body = pm.response.json(); pm.expect(body.status).to.eql('success'); pm.expect(body.data).to.have.property('participants'); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ownerToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/v1/events/{{eventId}}/participants"
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH Actualizar evento como organizador",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Actualiza el evento autenticado con HTTP 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Devuelve el nuevo nombre', function () { pm.expect(pm.response.json().data.name).to.eql(pm.environment.get('updatedEventName')); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ownerToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"{{updatedEventName}}\"\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/events/{{eventId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH Cancelar evento como organizador",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Cancela el evento autenticado con HTTP 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('El estado final es cancelled', function () { pm.expect(pm.response.json().data.status).to.eql('cancelled'); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ownerToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/v1/events/{{eventId}}/cancel"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "" },
+    { "key": "ownerEmail", "value": "" },
+    { "key": "ownerPassword", "value": "" },
+    { "key": "ownerToken", "value": "" },
+    { "key": "categoryName", "value": "" },
+    { "key": "categoryId", "value": "" },
+    { "key": "fixtureEventId", "value": "" },
+    { "key": "eventName", "value": "" },
+    { "key": "eventId", "value": "" },
+    { "key": "updatedEventName", "value": "" }
+  ]
+}

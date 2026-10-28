@@ -123,7 +123,7 @@ test('actualiza los campos permitidos de una categoría', async t => {
         $set: { name: 'Ciclismo' },
       });
 
-      assert.equal(options.new, true);
+      assert.equal(options.returnDocument, 'after');
 
       return query({
         _id: id,
@@ -151,7 +151,7 @@ test('desactiva una categoría sin eliminarla', async t => {
         $set: { status: 'inactive' },
       });
 
-      assert.equal(options.new, true);
+      assert.equal(options.returnDocument, 'after');
 
       return query({
         _id: id,

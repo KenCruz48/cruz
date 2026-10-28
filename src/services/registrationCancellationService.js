@@ -32,7 +32,7 @@ async function cancelRegistration(registrationId, participantId) {
         status: 'active',
       },
       { $set: { status: 'cancelled' } },
-      { new: true, session, runValidators: true },
+      { returnDocument: 'after', session, runValidators: true },
     );
 
     if (!cancelled) {
@@ -45,7 +45,7 @@ async function cancelRegistration(registrationId, participantId) {
         registeredCount: { $gt: 0 },
       },
       { $inc: { registeredCount: -1 } },
-      { new: true, session },
+      { returnDocument: 'after', session },
     );
 
     if (!event) {
