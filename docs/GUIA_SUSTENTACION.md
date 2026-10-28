@@ -2,15 +2,15 @@
 
 ## Inicio en este equipo
 
-1. Abre la carpeta del proyecto y ejecuta `INICIAR_DEMO_LOCAL.cmd`.
+1. Abre la carpeta del proyecto y ejecuta `INICIAR_PROYECTO.cmd`.
 2. Espera el mensaje `RaceTrack API escuchando en el puerto 3000`.
 3. Abre http://localhost:3000.
 4. Consulta las cuentas en `.demo-credentials.json`, archivo privado local.
 5. Mantén abierta la ventana del servidor. Ctrl+C lo detiene.
 
-También puedes ejecutar `npm ci` y `npm run demo:local` desde la raíz del repositorio.
-Requiere Node 22+, red para la primera descarga de MongoDB y el puerto 3000 libre.
-La réplica local permite transacciones reales y reinicia sus datos al cerrar.
+También puedes ejecutar `npm ci` y `npm run demo:start` desde la raíz del repositorio.
+Requiere Node 22+, conexión a Atlas y el puerto 3000 libre.
+El modo Atlas conserva los datos al cerrar; la réplica local alternativa los reinicia.
 Las cuentas privadas conservan sus contraseñas entre ejecuciones en este equipo.
 
 El arranque prepara dos eventos: **Circuito universitario 5K · Inscripciones** y
@@ -32,27 +32,26 @@ tiempos de 20:00, 20:00 y 22:00 minutos, con puestos 1,1,3.
    API, Selenium prueba UI, la integración utiliza transacciones y JMeter mide carga local.
 
 Para demostrar también escritura de resultados y su consulta por API sobre el servidor
-activo: `npm run demo:verify-local`. Ese comando comprueba login, inscripción, duplicado,
+activo en Atlas: `npm run demo:verify`. Ese comando comprueba login, inscripción, duplicado,
 registro de resultado, ranking y cancelación, dejando la cuenta lista para repetir.
 
 ## Estado de Atlas
 
-La URI antigua de `atlas-credentials.env` rechazó la autenticación el 28/10/2026.
-La creación de un usuario exclusivo de demo por el conector no se ejecutó porque no
-recibió la confirmación requerida. No se restablecieron claves ni se ampliaron permisos.
+Conexión verificada el 28/10/2026, a las 12:53 (America/Bogota).
+La aplicación utiliza Cluster0 y la base separada `racetrack_demo_kevin`.
+La IP actual fue autorizada por Kevin. Login, inscripción, rechazo de duplicados,
+resultado, ranking y cancelación pasaron sobre Atlas.
+Consulta [el informe de verificación](atlas-verificacion.md).
 
-**La demo local no debe presentarse como una conexión de la aplicación a Atlas.**
-Kevin puede mostrar su proyecto Atlas por separado y explicar el modo usado en la demo.
-Para restablecer la ejecución contra Atlas:
+Para iniciar esta configuración, ejecuta `INICIAR_PROYECTO.cmd` o
+`npm run demo:start`. Para repetir la comprobación: `npm run demo:verify`.
+El perfil privado es `.env.demo`; no revelar sus valores.
 
-1. Kevin obtiene una URI válida o confirma la creación del usuario de aplicación.
-   Su permiso propuesto es readWrite solo en `racetrack_demo_kevin`, limitado a Cluster0.
-2. Actualiza MONGODB_URI en `.env.demo`, manteniendo esa BD y un JWT_SECRET privado.
-3. Ejecuta `npm run demo:prepare`, luego `INICIAR_PROYECTO.cmd` o `npm run demo:start`.
-4. Con el servidor Atlas activo ejecuta `npm run demo:verify`.
-
-Los archivos privados están ignorados por Git y no se incluyen en el ZIP de entrega.
-Los datos demo usan un nombre de BD propio y no sustituyen la BD existente del equipo.
+La alternativa local sigue disponible con `INICIAR_DEMO_LOCAL.cmd`.
+Solo esa alternativa reinicia su base al detenerla; los datos de Atlas persisten.
+Los eventos, participantes y tiempos son ejemplos académicos y se identifican
+en pantalla, también al utilizar Atlas. Los datos se alojan en una base propia
+y no sustituyen la base existente del equipo.
 
 ## Repetir la verificación completa
 
