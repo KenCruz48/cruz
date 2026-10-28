@@ -1,5 +1,17 @@
 # RaceTrack API
 
+## Ejecutar la demostración preparada
+
+En Windows, abrir `INICIAR_DEMO_LOCAL.cmd` y luego http://localhost:3000.
+Prepara cuentas, eventos y podio en una réplica MongoDB local desechable.
+Las credenciales quedan en `.demo-credentials.json`, ignorado por Git.
+Comprobar el flujo completo con `npm run demo:verify-local`.
+
+Guía para presentar, repetir pruebas y configurar Atlas:
+[Guía de sustentación](docs/GUIA_SUSTENTACION.md).
+El modo local no usa Atlas. El modo Atlas requiere `.env.demo` con credenciales
+vigentes y se ejecuta con `INICIAR_PROYECTO.cmd` o `npm run demo:start`.
+
 Backend para la gestión de eventos deportivos desarrollado con Node.js, Express y MongoDB Atlas.
 
 ## Sprint 1

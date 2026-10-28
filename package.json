@@ -8,6 +8,11 @@
     "dev": "cross-env NODE_ENV=development node --watch src/server.js",
     "test": "cross-env NODE_ENV=test node --test",
     "regression": "node scripts/regression-report.js",
+    "demo:prepare": "node scripts/demo.js prepare",
+    "demo:start": "node scripts/demo.js start",
+    "demo:verify": "node scripts/demo.js verify",
+    "demo:local": "node scripts/demo.js local",
+    "demo:verify-local": "node scripts/demo.js verify-local",
     "qa:acceptance": "node qa/acceptance.js",
     "verify:ranking": "node scripts/verify-ranking-atlas.js",
     "start:production": "cross-env NODE_ENV=production node src/server.js"
