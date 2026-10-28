@@ -15,7 +15,7 @@ if not exist "node_modules\mongodb-memory-server" (
 )
 echo Demo local con MongoDB real. Los datos se reinician al cerrar.
 echo Abre http://localhost:3000 cuando el servidor confirme la conexion.
-call npm run demo:local
+node scripts/demo.js local
 if errorlevel 1 goto error
 exit /b 0
 :error

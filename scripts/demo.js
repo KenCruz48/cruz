@@ -52,11 +52,11 @@ async function prepare(sourceFile) {
         active: true, passwordHash: await bcrypt.hash(account.password, 12),
       } }, { upsert: true, returnDocument: 'after', runValidators: true }));
     }
-    const category = await Category.findOneAndUpdate({ name: 'Abierta Demo' }, { $set: { description: 'Categoria de sustentacion', status: 'active' } }, { upsert: true, returnDocument: 'after', runValidators: true });
+    const category = await Category.findOneAndUpdate({ name: 'Abierta Demo' }, { $set: { description: 'Categoría abierta para demostrar inscripción, cupos y resultados', status: 'active' } }, { upsert: true, returnDocument: 'after', runValidators: true });
     const events = [];
-    for (const name of ['Carrera Demo Inscripciones 5K', 'Carrera Demo Podio 5K']) {
+    for (const name of ['Circuito universitario 5K · Inscripciones', 'Encuentro universitario 5K · Resultados']) {
       events.push(await Event.findOneAndUpdate({ name, owner: users[0]._id }, { $set: {
-        date: new Date(Date.now() + 30 * 86400000), location: 'Pista de demostracion', distance: 5, capacity: 100, status: 'active',
+        date: new Date(Date.now() + 30 * 86400000), location: 'Pista de atletismo · Escenario académico', distance: 5, capacity: 100, status: 'active',
       }, $setOnInsert: { registeredCount: 0 } }, { upsert: true, returnDocument: 'after', runValidators: true }));
     }
     // Reset only the reserved demo runners, preserving their cancellation history.
@@ -87,7 +87,7 @@ async function verify() {
   assert.equal((await request('/health')).status, 200);
   const event = await request(`/api/v1/events/${state.eventId}`);
   assert.equal(event.status, 200);
-  assert.equal(event.body.data.name, 'Carrera Demo Inscripciones 5K');
+  assert.equal(event.body.data.name, 'Circuito universitario 5K · Inscripciones');
   const podium = await request(`/api/v1/events/${state.podiumEventId}/ranking`);
   assert.equal(podium.status, 200);
   assert.deepEqual(podium.body.data.ranking.map(row => row.rank), [1, 1, 3]);
