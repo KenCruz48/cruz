@@ -155,7 +155,7 @@ test('PATCH /api/v1/categories/:id actualiza una categoría', async t => {
   t.mock.method(Category, 'findByIdAndUpdate', (key, update, options) => {
     assert.equal(key, id);
     assert.deepEqual(update, { $set: { name: 'Ciclismo' } });
-    assert.equal(options.new, true);
+    assert.equal(options.returnDocument, 'after');
 
     return query({
       _id: id,
@@ -194,7 +194,7 @@ test('PATCH /api/v1/categories/:id/deactivate desactiva una categoría', async t
   t.mock.method(Category, 'findByIdAndUpdate', (key, update, options) => {
     assert.equal(key, id);
     assert.deepEqual(update, { $set: { status: 'inactive' } });
-    assert.equal(options.new, true);
+    assert.equal(options.returnDocument, 'after');
 
     return query({
       _id: id,

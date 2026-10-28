@@ -1,29 +1,66 @@
 {
+  "status": "passed",
+  "generatedAt": "2026-10-28T15:39:32.206Z",
+  "jmeterVersion": "5.6.3",
+  "jmeterHome": "D:\\DOCUMENTOS USUARIO\\Downloads\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3",
+  "javaExecutable": "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath\\java.exe",
+  "javaMajorVersion": 21,
+  "routes": [
+    "POST - Crear evento",
+    "POST - Crear inscripción",
+    "PATCH - Actualizar evento",
+    "GET - Participantes",
+    "POST - Registrar resultado"
+  ],
   "results": {
     "load": {
       "threads": 5,
       "rampSeconds": 5,
       "loops": 10,
-      "samples": 50,
+      "samples": 250,
+      "totalSamples": 253,
+      "samplesPerEndpoint": 50,
+      "endpointSamples": {
+        "POST - Crear evento": 50,
+        "POST - Crear inscripción": 50,
+        "PATCH - Actualizar evento": 50,
+        "GET - Participantes": 50,
+        "POST - Registrar resultado": 50
+      },
       "failed": 0,
+      "totalFailed": 0,
       "errorPercent": 0,
-      "averageMs": 8.78,
-      "p95Ms": 10,
-      "maxMs": 98,
-      "throughputPerSecond": 13.068478829064297
+      "minMs": 6,
+      "averageMs": 12.216,
+      "p95Ms": 19,
+      "maxMs": 27,
+      "throughputPerSecond": 55.21201413427562,
+      "preparationSamples": 3
     },
     "stress": {
       "threads": 50,
-      "rampSeconds": 5,
+      "rampSeconds": 10,
       "loops": 10,
-      "samples": 500,
+      "samples": 2500,
+      "totalSamples": 2503,
+      "samplesPerEndpoint": 500,
+      "endpointSamples": {
+        "POST - Crear evento": 500,
+        "POST - Crear inscripción": 500,
+        "PATCH - Actualizar evento": 500,
+        "GET - Participantes": 500,
+        "POST - Registrar resultado": 500
+      },
       "failed": 0,
+      "totalFailed": 0,
       "errorPercent": 0,
-      "averageMs": 8.586,
-      "p95Ms": 25,
-      "maxMs": 109,
-      "throughputPerSecond": 106.36034886194426
+      "minMs": 7,
+      "averageMs": 72.5552,
+      "p95Ms": 130,
+      "maxMs": 249,
+      "throughputPerSecond": 196.27855853026617,
+      "preparationSamples": 3
     }
   },
-  "interpretation": "Carga y estrés en equipo local con datos no vacíos. No se alcanzó necesariamente saturación: estas métricas no estiman capacidad de Atlas ni producción."
+  "interpretation": "Resultados de API local con MongoDB temporal; no representan capacidad de producción ni de Atlas."
 }
