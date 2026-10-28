@@ -72,7 +72,7 @@ test(
         assert.deepEqual(filter.registeredCount, { $lte: 250 });
         assert.equal(update.$set.name, 'Carrera 10K Mocoa');
         assert.equal(update.$set.capacity, 250);
-        assert.equal(options.new, true);
+        assert.equal(options.returnDocument, 'after');
         assert.equal(options.runValidators, true);
 
         return queryResult({
@@ -145,7 +145,7 @@ test(
       (id, update, options) => {
         assert.equal(id, eventId);
         assert.equal(update.$set.status, 'cancelled');
-        assert.equal(options.new, true);
+        assert.equal(options.returnDocument, 'after');
         assert.equal(options.runValidators, true);
 
         return queryResult({

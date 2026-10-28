@@ -328,7 +328,7 @@ async function updateEvent(id, data = {}, ownerId) {
       $set: update,
     },
     {
-      new: true,
+      returnDocument: 'after',
       runValidators: true,
     }
   )
@@ -383,7 +383,7 @@ async function cancelEvent(id, ownerId) {
       },
     },
     {
-      new: true,
+      returnDocument: 'after',
       runValidators: true,
     }
   )

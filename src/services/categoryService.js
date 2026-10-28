@@ -124,7 +124,7 @@ async function updateCategory(id, data = {}) {
   const category = await Category.findByIdAndUpdate(
     id,
     { $set: updates },
-    { new: true, runValidators: true },
+    { returnDocument: 'after', runValidators: true },
   )
     .select(PUBLIC_FIELDS)
     .lean();
@@ -142,7 +142,7 @@ async function deactivateCategory(id) {
   const category = await Category.findByIdAndUpdate(
     id,
     { $set: { status: 'inactive' } },
-    { new: true, runValidators: true },
+    { returnDocument: 'after', runValidators: true },
   )
     .select(PUBLIC_FIELDS)
     .lean();

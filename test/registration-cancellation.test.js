@@ -52,6 +52,7 @@ test('cancela una inscripción activa sin eliminar el registro', async t => {
     assert.deepEqual(update, { $set: { status: 'cancelled' } });
     assert.equal(options.session, session);
     assert.equal(options.runValidators, true);
+    assert.equal(options.returnDocument, 'after');
     return cancelled;
   });
 
@@ -62,6 +63,7 @@ test('cancela una inscripción activa sin eliminar el registro', async t => {
     });
     assert.deepEqual(update, { $inc: { registeredCount: -1 } });
     assert.equal(options.session, session);
+    assert.equal(options.returnDocument, 'after');
     return { _id: eventId, registeredCount: 0 };
   });
 
