@@ -444,7 +444,7 @@ async function run() {
     'jmeter.json', 'newman-original.json', 'jmeter-metrics.json', 'load.jtl', 'stress.jtl',
     'load-plan.jmx', 'stress-plan.jmx', 'load-jmeter.log', 'stress-jmeter.log',
     'load-console.txt', 'stress-console.txt', 'system-checks.json', 'selenium-checks.json',
-    'selenium-registration.png', 'selenium-final.png', 'ranking-real.txt', 'capacity-real.txt',
+    'selenium-registration.png', 'selenium-final.png', 'selenium-desktop.png', 'selenium-mobile.png', 'ranking-real.txt', 'capacity-real.txt',
   ];
   for (const file of generatedFiles) fs.rmSync(path.join(output, file), { force: true });
 
@@ -472,7 +472,7 @@ async function run() {
         const checks = await runSelenium(fixture, output);
         fs.writeFileSync(path.join(output, 'selenium-checks.json'), JSON.stringify(checks, null, 2));
         writeReport('RACE-49', 'selenium', checks.length, [
-          'selenium-checks.json', 'selenium-registration.png', 'selenium-final.png',
+          'selenium-checks.json', 'selenium-registration.png', 'selenium-final.png', 'selenium-desktop.png', 'selenium-mobile.png',
         ], checks);
         return { tests: checks.length, checks };
       }],

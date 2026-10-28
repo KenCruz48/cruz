@@ -14,7 +14,7 @@ if not exist "node_modules\express" (
   if errorlevel 1 goto error
 )
 echo Abre http://localhost:3000 cuando el servidor confirme la conexion.
-call npm run demo:start
+node scripts/demo.js start
 if errorlevel 1 goto error
 exit /b 0
 :error

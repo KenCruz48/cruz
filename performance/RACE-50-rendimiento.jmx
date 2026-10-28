@@ -191,6 +191,8 @@ props.put('qa.runnerToken', token)</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="JWT para crear categoría"><collectionProp name="HeaderManager.headers"><elementProp name="" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp></elementProp></collectionProp></HeaderManager>
+          <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Crear categoría HTTP 201">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49587">201</stringProp>

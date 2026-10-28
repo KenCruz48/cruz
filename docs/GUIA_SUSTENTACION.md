@@ -13,8 +13,8 @@ Requiere Node 22+, red para la primera descarga de MongoDB y el puerto 3000 libr
 La réplica local permite transacciones reales y reinicia sus datos al cerrar.
 Las cuentas privadas conservan sus contraseñas entre ejecuciones en este equipo.
 
-El arranque prepara dos eventos: **Carrera Demo Inscripciones 5K** y
-**Carrera Demo Podio 5K**, con categoría **Abierta Demo**. El segundo ya tiene
+El arranque prepara dos eventos: **Circuito universitario 5K · Inscripciones** y
+**Encuentro universitario 5K · Resultados**, con categoría **Abierta Demo**. El segundo ya tiene
 tiempos de 20:00, 20:00 y 22:00 minutos, con puestos 1,1,3.
 
 ## Demostración en clase (8–10 minutos)
@@ -25,7 +25,7 @@ tiempos de 20:00, 20:00 y 22:00 minutos, con puestos 1,1,3.
    Distingue app.js de server.js y muestra variables de entorno sin revelar sus valores.
 3. **Aplicación:** abre localhost:3000, muestra los eventos y el podio del segundo evento.
 4. **Inscripción:** entra con la cuenta `corredor` del archivo privado. Selecciona
-   Carrera Demo Inscripciones 5K y Abierta Demo. Comprueba el contador actualizado.
+   Circuito universitario 5K · Inscripciones y Abierta Demo. Comprueba el contador actualizado.
 5. **Validación:** intenta inscribirte otra vez y muestra el rechazo del duplicado.
 6. **Cancelación:** cancela y comprueba que el cupo se libera. Cierra sesión.
 7. **Pruebas:** presenta los reportes con su fecha y versión. Explica que Postman prueba
@@ -59,6 +59,7 @@ Los datos demo usan un nombre de BD propio y no sustituyen la BD existente del e
 ```powershell
 npm ci
 npm test
+npm run test:jest
 # Ajustar estas rutas a instalaciones reales:
 $env:JAVA_HOME = 'C:\ruta\jdk-21'
 $env:JMETER_HOME = 'C:\ruta\apache-jmeter-5.6.3'

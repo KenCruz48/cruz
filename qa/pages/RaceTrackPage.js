@@ -1,4 +1,4 @@
-const { By, until } = require('selenium-webdriver');
+const { By, Key, until } = require('selenium-webdriver');
 
 class RaceTrackPage {
   constructor(driver) { this.driver = driver; }
@@ -8,9 +8,19 @@ class RaceTrackPage {
     await this.driver.wait(async () => (await this.driver.findElements(By.css('#category option'))).length > 1, 15000);
   }
   async fill(id, value) {
-    const field = await this.driver.findElement(By.id(id)); await field.clear(); await field.sendKeys(value);
+    const field = await this.driver.findElement(By.id(id));
+    // Use keyboard deletion so the browser emits input, as an actual user does.
+    await field.sendKeys(Key.chord(Key.CONTROL, 'a'), Key.BACK_SPACE);
+    if (value) await field.sendKeys(value);
   }
-  async click(id) { await this.driver.findElement(By.id(id)).click(); }
+  async click(id) {
+    const control = await this.driver.findElement(By.id(id));
+    // Center real controls before clicking: a sticky header and smooth scrolling
+    // must not leave WebDriver targeting a moving/off-screen position.
+    await this.driver.executeScript("arguments[0].scrollIntoView({block:'center', inline:'nearest', behavior:'instant'})", control);
+    await this.driver.wait(until.elementIsVisible(control), 5000);
+    await control.click();
+  }
   async waitText(id, text) {
     const field = await this.driver.findElement(By.id(id));
     await this.driver.wait(until.elementTextContains(field, text), 15000); return field.getText();

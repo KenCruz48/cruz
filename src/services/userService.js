@@ -23,6 +23,10 @@ async function registerUser(data = {}) {
 
   const normalizedEmail = email.trim().toLowerCase();
 
+  if (normalizedEmail.length > 254 || Buffer.byteLength(password, 'utf8') > 72) {
+    throw Object.assign(new Error('Correo o contraseña supera la longitud permitida'), { status: 400 });
+  }
+
   const existingUser = await User.findOne({
     email: normalizedEmail,
   });
