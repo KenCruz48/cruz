@@ -26,8 +26,8 @@
           <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
           <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/users/login</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -36,25 +36,24 @@
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">${authBody}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">false</boolProp>
               </elementProp>
             </collectionProp>
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Preparar credenciales organizador">
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Preparar credenciales organizador" enabled="true">
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="script">import groovy.json.JsonOutput
-def email = System.getenv('QA_OWNER_EMAIL')
-def password = System.getenv('QA_PASSWORD')
-if (!email || !password) throw new IllegalStateException('Faltan credenciales temporales de QA')
-vars.put('authBody', JsonOutput.toJson([email: email, password: password]))</stringProp>
+def email = System.getenv(&apos;QA_OWNER_EMAIL&apos;)
+def password = System.getenv(&apos;QA_PASSWORD&apos;)
+if (!email || !password) throw new IllegalStateException(&apos;Faltan credenciales temporales de QA&apos;)
+vars.put(&apos;authBody&apos;, JsonOutput.toJson([email: email, password: password]))</stringProp>
             <stringProp name="scriptLanguage">groovy</stringProp>
           </JSR223PreProcessor>
           <hashTree/>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="JSON">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="JSON" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -63,7 +62,7 @@ vars.put('authBody', JsonOutput.toJson([email: email, password: password]))</str
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Login organizador HTTP 200">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Login organizador HTTP 200" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
             </collectionProp>
@@ -73,20 +72,20 @@ vars.put('authBody', JsonOutput.toJson([email: email, password: password]))</str
             <intProp name="Assertion.test_type">8</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer JWT organizador de JSON">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer JWT organizador de JSON" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">ownerToken</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.token</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
             <stringProp name="JSONPostProcessor.defaultValues">MISSING</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Validar y compartir JWT organizador">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Validar y compartir JWT organizador" enabled="true">
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
-            <stringProp name="script">def token = vars.get('ownerToken')
-if (!token || token == 'MISSING') throw new IllegalStateException('Login organizador sin JWT')
-props.put('qa.ownerToken', token)</stringProp>
+            <stringProp name="script">def token = vars.get(&apos;ownerToken&apos;)
+if (!token || token == &apos;MISSING&apos;) throw new IllegalStateException(&apos;Login organizador sin JWT&apos;)
+props.put(&apos;qa.ownerToken&apos;, token)</stringProp>
             <stringProp name="scriptLanguage">groovy</stringProp>
           </JSR223PostProcessor>
           <hashTree/>
@@ -96,8 +95,8 @@ props.put('qa.ownerToken', token)</stringProp>
           <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
           <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/users/login</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -106,25 +105,24 @@ props.put('qa.ownerToken', token)</stringProp>
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">${authBody}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">false</boolProp>
               </elementProp>
             </collectionProp>
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Preparar credenciales corredor">
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Preparar credenciales corredor" enabled="true">
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="script">import groovy.json.JsonOutput
-def email = System.getenv('QA_RUNNER_EMAIL')
-def password = System.getenv('QA_PASSWORD')
-if (!email || !password) throw new IllegalStateException('Faltan credenciales temporales de QA')
-vars.put('authBody', JsonOutput.toJson([email: email, password: password]))</stringProp>
+def email = System.getenv(&apos;QA_RUNNER_EMAIL&apos;)
+def password = System.getenv(&apos;QA_PASSWORD&apos;)
+if (!email || !password) throw new IllegalStateException(&apos;Faltan credenciales temporales de QA&apos;)
+vars.put(&apos;authBody&apos;, JsonOutput.toJson([email: email, password: password]))</stringProp>
             <stringProp name="scriptLanguage">groovy</stringProp>
           </JSR223PreProcessor>
           <hashTree/>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="JSON">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="JSON" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -133,7 +131,7 @@ vars.put('authBody', JsonOutput.toJson([email: email, password: password]))</str
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Login corredor HTTP 200">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Login corredor HTTP 200" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
             </collectionProp>
@@ -143,20 +141,20 @@ vars.put('authBody', JsonOutput.toJson([email: email, password: password]))</str
             <intProp name="Assertion.test_type">8</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer JWT corredor de JSON">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer JWT corredor de JSON" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">runnerToken</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.token</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
             <stringProp name="JSONPostProcessor.defaultValues">MISSING</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Validar y compartir JWT corredor">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Validar y compartir JWT corredor" enabled="true">
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
-            <stringProp name="script">def token = vars.get('runnerToken')
-if (!token || token == 'MISSING') throw new IllegalStateException('Login corredor sin JWT')
-props.put('qa.runnerToken', token)</stringProp>
+            <stringProp name="script">def token = vars.get(&apos;runnerToken&apos;)
+if (!token || token == &apos;MISSING&apos;) throw new IllegalStateException(&apos;Login corredor sin JWT&apos;)
+props.put(&apos;qa.runnerToken&apos;, token)</stringProp>
             <stringProp name="scriptLanguage">groovy</stringProp>
           </JSR223PostProcessor>
           <hashTree/>
@@ -166,24 +164,27 @@ props.put('qa.runnerToken', token)</stringProp>
           <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
           <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/categories</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{"name":"JMeter-${__UUID()}","description":"Categoría temporal para RACE-50"}</stringProp>
+                <stringProp name="Argument.value">{&quot;name&quot;:&quot;JMeter-${__UUID()}&quot;,&quot;description&quot;:&quot;Categoría temporal para RACE-50&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">false</boolProp>
               </elementProp>
             </collectionProp>
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="JSON">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="JSON" enabled="true">
             <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp>
+              </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
                 <stringProp name="Header.value">application/json</stringProp>
@@ -191,9 +192,7 @@ props.put('qa.runnerToken', token)</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="JWT para crear categoría"><collectionProp name="HeaderManager.headers"><elementProp name="" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp></elementProp></collectionProp></HeaderManager>
-          <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Crear categoría HTTP 201">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Crear categoría HTTP 201" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49587">201</stringProp>
             </collectionProp>
@@ -203,26 +202,28 @@ props.put('qa.runnerToken', token)</stringProp>
             <intProp name="Assertion.test_type">8</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer categoría de JSON">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer categoría de JSON" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">categoryId</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data._id</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
             <stringProp name="JSONPostProcessor.defaultValues">MISSING</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Validar y compartir ID de categoría">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Validar y compartir ID de categoría" enabled="true">
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
-            <stringProp name="script">def categoryId = vars.get('categoryId')
-if (!categoryId || categoryId == 'MISSING') throw new IllegalStateException('Alta de categoría sin ID')
-props.put('qa.categoryId', categoryId)</stringProp>
+            <stringProp name="script">def responseCode = prev.getResponseCode()
+if (!prev.isSuccessful() || responseCode != &apos;201&apos;) throw new IllegalStateException(&quot;Crear categoría falló: HTTP ${responseCode} ${prev.getResponseMessage()}&quot;)
+def categoryId = vars.get(&apos;categoryId&apos;)
+if (!categoryId || categoryId == &apos;MISSING&apos;) throw new IllegalStateException(&apos;Crear categoría respondió HTTP 201 pero no devolvió data._id&apos;)
+props.put(&apos;qa.categoryId&apos;, categoryId)</stringProp>
             <stringProp name="scriptLanguage">groovy</stringProp>
           </JSR223PostProcessor>
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Carga - Rutas privadas">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Carga - Rutas privadas" enabled="false">
         <intProp name="ThreadGroup.num_threads">5</intProp>
         <intProp name="ThreadGroup.ramp_time">5</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -234,54 +235,231 @@ props.put('qa.categoryId', categoryId)</stringProp>
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST - Crear evento">
-          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp><stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp><stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/events</stringProp><stringProp name="HTTPSampler.method">POST</stringProp><boolProp name="HTTPSampler.follow_redirects">true</boolProp><boolProp name="HTTPSampler.use_keepalive">true</boolProp><boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"><collectionProp name="Arguments.arguments"><elementProp name="" elementType="HTTPArgument"><boolProp name="HTTPArgument.always_encode">false</boolProp><stringProp name="Argument.value">{"name":"JMeter-${__threadNum}-${__UUID()}","date":"2099-06-15T09:00:00.000Z","location":"Carga RACE-50","distance":5,"capacity":1000}</stringProp><stringProp name="Argument.metadata">=</stringProp><boolProp name="HTTPArgument.use_equals">false</boolProp></elementProp></collectionProp></elementProp>
+          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp>
+          <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/events</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;name&quot;:&quot;JMeter-${__threadNum}-${__UUID()}&quot;,&quot;date&quot;:&quot;2099-06-15T09:00:00.000Z&quot;,&quot;location&quot;:&quot;Carga RACE-50&quot;,&quot;distance&quot;:5,&quot;capacity&quot;:1000}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador"><collectionProp name="HeaderManager.headers"><elementProp name="" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp></elementProp><elementProp name="" elementType="Header"><stringProp name="Header.name">Content-Type</stringProp><stringProp name="Header.value">application/json</stringProp></elementProp></collectionProp></HeaderManager><hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Evento HTTP 201"><collectionProp name="Asserion.test_strings"><stringProp name="49587">201</stringProp></collectionProp><stringProp name="Assertion.custom_message">POST /events requiere HTTP 201</stringProp><stringProp name="Assertion.test_field">Assertion.response_code</stringProp><boolProp name="Assertion.assume_success">false</boolProp><intProp name="Assertion.test_type">8</intProp></ResponseAssertion><hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer eventId"><stringProp name="JSONPostProcessor.referenceNames">eventId</stringProp><stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp><stringProp name="JSONPostProcessor.match_numbers">1</stringProp><stringProp name="JSONPostProcessor.defaultValues">MISSING</stringProp></JSONPostProcessor><hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Evento HTTP 201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">POST /events requiere HTTP 201</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer eventId" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">eventId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">MISSING</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST - Crear inscripción">
-          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp><stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp><stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/registrations</stringProp><stringProp name="HTTPSampler.method">POST</stringProp><boolProp name="HTTPSampler.follow_redirects">true</boolProp><boolProp name="HTTPSampler.use_keepalive">true</boolProp><boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"><collectionProp name="Arguments.arguments"><elementProp name="" elementType="HTTPArgument"><boolProp name="HTTPArgument.always_encode">false</boolProp><stringProp name="Argument.value">{"eventId":"${eventId}","categoryId":"${__P(qa.categoryId)}"}</stringProp><stringProp name="Argument.metadata">=</stringProp><boolProp name="HTTPArgument.use_equals">false</boolProp></elementProp></collectionProp></elementProp>
+          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp>
+          <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/registrations</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;eventId&quot;:&quot;${eventId}&quot;,&quot;categoryId&quot;:&quot;${__P(qa.categoryId)}&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización corredor"><collectionProp name="HeaderManager.headers"><elementProp name="" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${__P(qa.runnerToken)}</stringProp></elementProp><elementProp name="" elementType="Header"><stringProp name="Header.name">Content-Type</stringProp><stringProp name="Header.value">application/json</stringProp></elementProp></collectionProp></HeaderManager><hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Inscripción HTTP 201"><collectionProp name="Asserion.test_strings"><stringProp name="49587">201</stringProp></collectionProp><stringProp name="Assertion.custom_message">POST /registrations requiere HTTP 201</stringProp><stringProp name="Assertion.test_field">Assertion.response_code</stringProp><boolProp name="Assertion.assume_success">false</boolProp><intProp name="Assertion.test_type">8</intProp></ResponseAssertion><hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer registrationId"><stringProp name="JSONPostProcessor.referenceNames">registrationId</stringProp><stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp><stringProp name="JSONPostProcessor.match_numbers">1</stringProp><stringProp name="JSONPostProcessor.defaultValues">MISSING</stringProp></JSONPostProcessor><hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización corredor" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${__P(qa.runnerToken)}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Inscripción HTTP 201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">POST /registrations requiere HTTP 201</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer registrationId" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">registrationId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">MISSING</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PATCH - Actualizar evento">
-          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp><stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp><stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/events/${eventId}</stringProp><stringProp name="HTTPSampler.method">PATCH</stringProp><boolProp name="HTTPSampler.follow_redirects">true</boolProp><boolProp name="HTTPSampler.use_keepalive">true</boolProp><boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"><collectionProp name="Arguments.arguments"><elementProp name="" elementType="HTTPArgument"><boolProp name="HTTPArgument.always_encode">false</boolProp><stringProp name="Argument.value">{"name":"JMeter actualizado ${__UUID()}"}</stringProp><stringProp name="Argument.metadata">=</stringProp><boolProp name="HTTPArgument.use_equals">false</boolProp></elementProp></collectionProp></elementProp>
+          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp>
+          <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/events/${eventId}</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">PATCH</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;name&quot;:&quot;JMeter actualizado ${__UUID()}&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador"><collectionProp name="HeaderManager.headers"><elementProp name="" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp></elementProp><elementProp name="" elementType="Header"><stringProp name="Header.name">Content-Type</stringProp><stringProp name="Header.value">application/json</stringProp></elementProp></collectionProp></HeaderManager><hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Actualización HTTP 200"><collectionProp name="Asserion.test_strings"><stringProp name="49586">200</stringProp></collectionProp><stringProp name="Assertion.custom_message">PATCH /events/{id} requiere HTTP 200</stringProp><stringProp name="Assertion.test_field">Assertion.response_code</stringProp><boolProp name="Assertion.assume_success">false</boolProp><intProp name="Assertion.test_type">8</intProp></ResponseAssertion><hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Actualización HTTP 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">PATCH /events/{id} requiere HTTP 200</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET - Participantes">
-          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp><stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp><stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/events/${eventId}/participants</stringProp><stringProp name="HTTPSampler.method">GET</stringProp><boolProp name="HTTPSampler.follow_redirects">true</boolProp><boolProp name="HTTPSampler.use_keepalive">true</boolProp><boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"><collectionProp name="Arguments.arguments"/></elementProp>
+          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp>
+          <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/events/${eventId}/participants</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador"><collectionProp name="HeaderManager.headers"><elementProp name="" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp></elementProp></collectionProp></HeaderManager><hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Participantes HTTP 200"><collectionProp name="Asserion.test_strings"><stringProp name="49586">200</stringProp></collectionProp><stringProp name="Assertion.custom_message">GET /events/{id}/participants requiere HTTP 200</stringProp><stringProp name="Assertion.test_field">Assertion.response_code</stringProp><boolProp name="Assertion.assume_success">false</boolProp><intProp name="Assertion.test_type">8</intProp></ResponseAssertion><hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Participantes HTTP 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">GET /events/{id}/participants requiere HTTP 200</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST - Registrar resultado">
-          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp><stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp><stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/results</stringProp><stringProp name="HTTPSampler.method">POST</stringProp><boolProp name="HTTPSampler.follow_redirects">true</boolProp><boolProp name="HTTPSampler.use_keepalive">true</boolProp><boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"><collectionProp name="Arguments.arguments"><elementProp name="" elementType="HTTPArgument"><boolProp name="HTTPArgument.always_encode">false</boolProp><stringProp name="Argument.value">{"eventId":"${eventId}","registrationId":"${registrationId}","timeMs":123456}</stringProp><stringProp name="Argument.metadata">=</stringProp><boolProp name="HTTPArgument.use_equals">false</boolProp></elementProp></collectionProp></elementProp>
+          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp>
+          <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/results</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;eventId&quot;:&quot;${eventId}&quot;,&quot;registrationId&quot;:&quot;${registrationId}&quot;,&quot;timeMs&quot;:123456}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador"><collectionProp name="HeaderManager.headers"><elementProp name="" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp></elementProp><elementProp name="" elementType="Header"><stringProp name="Header.name">Content-Type</stringProp><stringProp name="Header.value">application/json</stringProp></elementProp></collectionProp></HeaderManager><hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Resultado HTTP 201"><collectionProp name="Asserion.test_strings"><stringProp name="49587">201</stringProp></collectionProp><stringProp name="Assertion.custom_message">POST /results requiere HTTP 201</stringProp><stringProp name="Assertion.test_field">Assertion.response_code</stringProp><boolProp name="Assertion.assume_success">false</boolProp><intProp name="Assertion.test_type">8</intProp></ResponseAssertion><hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Resultado HTTP 201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">POST /results requiere HTTP 201</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Estrés - Rutas privadas">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Estrés - Rutas privadas" enabled="false">
         <intProp name="ThreadGroup.num_threads">50</intProp>
         <intProp name="ThreadGroup.ramp_time">10</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -293,68 +471,262 @@ props.put('qa.categoryId', categoryId)</stringProp>
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST - Crear evento">
-          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp><stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp><stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/events</stringProp><stringProp name="HTTPSampler.method">POST</stringProp><boolProp name="HTTPSampler.follow_redirects">true</boolProp><boolProp name="HTTPSampler.use_keepalive">true</boolProp><boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"><collectionProp name="Arguments.arguments"><elementProp name="" elementType="HTTPArgument"><boolProp name="HTTPArgument.always_encode">false</boolProp><stringProp name="Argument.value">{"name":"JMeter-${__threadNum}-${__UUID()}","date":"2099-06-15T09:00:00.000Z","location":"Estrés RACE-50","distance":5,"capacity":1000}</stringProp><stringProp name="Argument.metadata">=</stringProp><boolProp name="HTTPArgument.use_equals">false</boolProp></elementProp></collectionProp></elementProp>
+          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp>
+          <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/events</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;name&quot;:&quot;JMeter-${__threadNum}-${__UUID()}&quot;,&quot;date&quot;:&quot;2099-06-15T09:00:00.000Z&quot;,&quot;location&quot;:&quot;Estrés RACE-50&quot;,&quot;distance&quot;:5,&quot;capacity&quot;:1000}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador"><collectionProp name="HeaderManager.headers"><elementProp name="" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp></elementProp><elementProp name="" elementType="Header"><stringProp name="Header.name">Content-Type</stringProp><stringProp name="Header.value">application/json</stringProp></elementProp></collectionProp></HeaderManager><hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Evento HTTP 201"><collectionProp name="Asserion.test_strings"><stringProp name="49587">201</stringProp></collectionProp><stringProp name="Assertion.custom_message">POST /events requiere HTTP 201</stringProp><stringProp name="Assertion.test_field">Assertion.response_code</stringProp><boolProp name="Assertion.assume_success">false</boolProp><intProp name="Assertion.test_type">8</intProp></ResponseAssertion><hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer eventId"><stringProp name="JSONPostProcessor.referenceNames">eventId</stringProp><stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp><stringProp name="JSONPostProcessor.match_numbers">1</stringProp><stringProp name="JSONPostProcessor.defaultValues">MISSING</stringProp></JSONPostProcessor><hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Evento HTTP 201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">POST /events requiere HTTP 201</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer eventId" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">eventId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">MISSING</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST - Crear inscripción">
-          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp><stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp><stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/registrations</stringProp><stringProp name="HTTPSampler.method">POST</stringProp><boolProp name="HTTPSampler.follow_redirects">true</boolProp><boolProp name="HTTPSampler.use_keepalive">true</boolProp><boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"><collectionProp name="Arguments.arguments"><elementProp name="" elementType="HTTPArgument"><boolProp name="HTTPArgument.always_encode">false</boolProp><stringProp name="Argument.value">{"eventId":"${eventId}","categoryId":"${__P(qa.categoryId)}"}</stringProp><stringProp name="Argument.metadata">=</stringProp><boolProp name="HTTPArgument.use_equals">false</boolProp></elementProp></collectionProp></elementProp>
+          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp>
+          <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/registrations</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;eventId&quot;:&quot;${eventId}&quot;,&quot;categoryId&quot;:&quot;${__P(qa.categoryId)}&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización corredor"><collectionProp name="HeaderManager.headers"><elementProp name="" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${__P(qa.runnerToken)}</stringProp></elementProp><elementProp name="" elementType="Header"><stringProp name="Header.name">Content-Type</stringProp><stringProp name="Header.value">application/json</stringProp></elementProp></collectionProp></HeaderManager><hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Inscripción HTTP 201"><collectionProp name="Asserion.test_strings"><stringProp name="49587">201</stringProp></collectionProp><stringProp name="Assertion.custom_message">POST /registrations requiere HTTP 201</stringProp><stringProp name="Assertion.test_field">Assertion.response_code</stringProp><boolProp name="Assertion.assume_success">false</boolProp><intProp name="Assertion.test_type">8</intProp></ResponseAssertion><hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer registrationId"><stringProp name="JSONPostProcessor.referenceNames">registrationId</stringProp><stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp><stringProp name="JSONPostProcessor.match_numbers">1</stringProp><stringProp name="JSONPostProcessor.defaultValues">MISSING</stringProp></JSONPostProcessor><hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización corredor" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${__P(qa.runnerToken)}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Inscripción HTTP 201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">POST /registrations requiere HTTP 201</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extraer registrationId" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">registrationId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">MISSING</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PATCH - Actualizar evento">
-          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp><stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp><stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/events/${eventId}</stringProp><stringProp name="HTTPSampler.method">PATCH</stringProp><boolProp name="HTTPSampler.follow_redirects">true</boolProp><boolProp name="HTTPSampler.use_keepalive">true</boolProp><boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"><collectionProp name="Arguments.arguments"><elementProp name="" elementType="HTTPArgument"><boolProp name="HTTPArgument.always_encode">false</boolProp><stringProp name="Argument.value">{"name":"JMeter actualizado ${__UUID()}"}</stringProp><stringProp name="Argument.metadata">=</stringProp><boolProp name="HTTPArgument.use_equals">false</boolProp></elementProp></collectionProp></elementProp>
+          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp>
+          <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/events/${eventId}</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">PATCH</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;name&quot;:&quot;JMeter actualizado ${__UUID()}&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador"><collectionProp name="HeaderManager.headers"><elementProp name="" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp></elementProp><elementProp name="" elementType="Header"><stringProp name="Header.name">Content-Type</stringProp><stringProp name="Header.value">application/json</stringProp></elementProp></collectionProp></HeaderManager><hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Actualización HTTP 200"><collectionProp name="Asserion.test_strings"><stringProp name="49586">200</stringProp></collectionProp><stringProp name="Assertion.custom_message">PATCH /events/{id} requiere HTTP 200</stringProp><stringProp name="Assertion.test_field">Assertion.response_code</stringProp><boolProp name="Assertion.assume_success">false</boolProp><intProp name="Assertion.test_type">8</intProp></ResponseAssertion><hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Actualización HTTP 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">PATCH /events/{id} requiere HTTP 200</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET - Participantes">
-          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp><stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp><stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/events/${eventId}/participants</stringProp><stringProp name="HTTPSampler.method">GET</stringProp><boolProp name="HTTPSampler.follow_redirects">true</boolProp><boolProp name="HTTPSampler.use_keepalive">true</boolProp><boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"><collectionProp name="Arguments.arguments"/></elementProp>
+          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp>
+          <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/events/${eventId}/participants</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador"><collectionProp name="HeaderManager.headers"><elementProp name="" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp></elementProp></collectionProp></HeaderManager><hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Participantes HTTP 200"><collectionProp name="Asserion.test_strings"><stringProp name="49586">200</stringProp></collectionProp><stringProp name="Assertion.custom_message">GET /events/{id}/participants requiere HTTP 200</stringProp><stringProp name="Assertion.test_field">Assertion.response_code</stringProp><boolProp name="Assertion.assume_success">false</boolProp><intProp name="Assertion.test_type">8</intProp></ResponseAssertion><hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Participantes HTTP 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">GET /events/{id}/participants requiere HTTP 200</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST - Registrar resultado">
-          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp><stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp><stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/results</stringProp><stringProp name="HTTPSampler.method">POST</stringProp><boolProp name="HTTPSampler.follow_redirects">true</boolProp><boolProp name="HTTPSampler.use_keepalive">true</boolProp><boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"><collectionProp name="Arguments.arguments"><elementProp name="" elementType="HTTPArgument"><boolProp name="HTTPArgument.always_encode">false</boolProp><stringProp name="Argument.value">{"eventId":"${eventId}","registrationId":"${registrationId}","timeMs":123456}</stringProp><stringProp name="Argument.metadata">=</stringProp><boolProp name="HTTPArgument.use_equals">false</boolProp></elementProp></collectionProp></elementProp>
+          <stringProp name="HTTPSampler.domain">${__P(host,127.0.0.1)}</stringProp>
+          <stringProp name="HTTPSampler.port">${__P(port,3000)}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${__P(protocol,http)}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/results</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;eventId&quot;:&quot;${eventId}&quot;,&quot;registrationId&quot;:&quot;${registrationId}&quot;,&quot;timeMs&quot;:123456}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador"><collectionProp name="HeaderManager.headers"><elementProp name="" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp></elementProp><elementProp name="" elementType="Header"><stringProp name="Header.name">Content-Type</stringProp><stringProp name="Header.value">application/json</stringProp></elementProp></collectionProp></HeaderManager><hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Resultado HTTP 201"><collectionProp name="Asserion.test_strings"><stringProp name="49587">201</stringProp></collectionProp><stringProp name="Assertion.custom_message">POST /results requiere HTTP 201</stringProp><stringProp name="Assertion.test_field">Assertion.response_code</stringProp><boolProp name="Assertion.assume_success">false</boolProp><intProp name="Assertion.test_type">8</intProp></ResponseAssertion><hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Autorización organizador" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${__P(qa.ownerToken)}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Resultado HTTP 201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">POST /results requiere HTTP 201</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
       </hashTree>
-      <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="JTL CSV - todas las solicitudes" enabled="true">
+      <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="JTL CSV - todas las solicitudes">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
           <value class="SampleSaveConfiguration">
-            <time>true</time><latency>true</latency><timestamp>true</timestamp><success>true</success>
-            <label>true</label><code>true</code><message>true</message><threadName>true</threadName>
-            <dataType>true</dataType><encoding>false</encoding><assertions>true</assertions>
-            <subresults>false</subresults><responseData>false</responseData><samplerData>false</samplerData>
-            <xml>false</xml><fieldNames>true</fieldNames><responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders><responseDataOnError>false</responseDataOnError>
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
             <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave><bytes>true</bytes>
-            <sentBytes>true</sentBytes><url>true</url><threadCounts>true</threadCounts>
-            <idleTime>true</idleTime><connectTime>true</connectTime>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
           </value>
         </objProp>
         <stringProp name="filename"></stringProp>
