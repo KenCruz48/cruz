@@ -36,7 +36,7 @@ async function connectDatabase() {
     if (process.env.MONGODB_DB) options.dbName = process.env.MONGODB_DB;
     await mongoose.connect(uri, options);
 
-    console.log('MongoDB Atlas conectado correctamente');
+    console.log('MongoDB conectado correctamente');
   } catch (error) {
     const serverErrors = error?.reason?.servers instanceof Map
       ? [...error.reason.servers.values()]
