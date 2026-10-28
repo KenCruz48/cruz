@@ -4,44 +4,48 @@
 |---|---|
 | Proyecto | Racetrack API |
 | Tarea | RACE-50 — Pruebas de carga y estrés |
-| Fecha de actualización | 28 de octubre de 2026 |
-| Ejecución reportada | 28 de octubre de 2026, 12:59:14 (UTC−05:00) |
+| Fecha de ejecución | 28 de octubre de 2026 |
+| Ejecución documentada | 28 de octubre de 2026, 14:05:28.043 (UTC−05:00) |
 | Herramienta | Apache JMeter 5.6.3 |
 | Java | 21 |
-| Rama de trabajo | `feature/RACE-50-implementacion` |
+| Rama de trabajo | `fix/RACE-50-evidencias` |
 
 ## 1. Objetivo
 
-Evaluar el comportamiento de cinco endpoints protegidos de Racetrack API bajo dos escenarios de concurrencia: carga y estrés. Se registran los tiempos de respuesta, el número de solicitudes, el porcentaje de errores y el throughput, utilizando los archivos JTL generados durante la ejecución reportada.
+Evaluar el comportamiento de cinco endpoints protegidos de Racetrack API bajo dos escenarios de concurrencia: carga y estrés. Se analizan los tiempos de respuesta, el número de solicitudes, el porcentaje de errores y el throughput, a partir de los archivos JTL y las métricas generadas durante la ejecución documentada.
 
 El propósito es obtener evidencia reproducible del comportamiento de las rutas seleccionadas en un entorno local de pruebas.
 
 ## 2. Alcance y entorno de ejecución
 
-La ejecución se realizó mediante el comando `npm run qa:acceptance`. El runner inició una instancia de Express en un puerto dinámico y una instancia temporal local de MongoDB configurada como replica set.
+La ejecución documentada se realizó mediante el comando `npm run qa:acceptance`. El runner inició una instancia de Express en un puerto dinámico y una instancia temporal local de MongoDB configurada como replica set.
 
-JMeter recibió el host y el puerto del entorno de prueba, y utilizó las credenciales temporales definidas por el fixture. Los resultados se contrastaron con los archivos siguientes:
+JMeter recibió el host y el puerto del entorno de prueba y utilizó las credenciales temporales definidas por el fixture.
+
+Los archivos utilizados para documentar los resultados son:
 
 - `evidence/team/load.jtl`
 - `evidence/team/stress.jtl`
 - `evidence/team/jmeter-metrics.json`
 
-La ejecución completa de aceptación reportó los componentes de integración, Newman, Selenium y JMeter aprobados. Este informe se limita a los resultados de rendimiento de JMeter.
+La ejecución de aceptación reportada previamente indicó que los componentes de integración, Newman, Selenium y JMeter finalizaron correctamente. Los resultados de este informe se limitan al rendimiento medido por JMeter durante la ejecución indicada.
 
 ## 3. Plan de pruebas y autenticación
 
-El plan utilizado es `performance/RACE-50-rendimiento.jmx`. Antes de cada escenario se ejecuta un grupo de preparación que realiza las siguientes acciones:
+El plan utilizado es `performance/RACE-50-rendimiento.jmx`.
 
-1. Inicia sesión como organizador y como corredor mediante `POST /api/v1/users/login`.
-2. Extrae los tokens JWT de las respuestas, utilizando la expresión JSON `$.data.token`.
+Antes de ejecutar las solicitudes de negocio, el plan realiza un grupo de preparación que:
+
+1. Inicia sesión como organizador y corredor mediante `POST /api/v1/users/login`.
+2. Extrae los tokens JWT de las respuestas mediante la expresión JSON `$.data.token`.
 3. Comprueba que los tokens estén disponibles.
-4. Crea una categoría temporal y recupera su identificador.
-5. Utiliza los tokens en las solicitudes protegidas mediante el encabezado `Authorization: Bearer <token>`.
+4. Crea una categoría temporal y obtiene su identificador.
+5. Envía los tokens en el encabezado `Authorization: Bearer <token>` para las solicitudes protegidas.
 6. Obtiene los identificadores de evento e inscripción requeridos durante la ejecución.
 
-Cada escenario registra tres solicitudes de preparación: dos inicios de sesión y una creación de categoría. Estas solicitudes se incluyen en el total de muestras JTL, pero se excluyen de las métricas de negocio presentadas en este informe.
+Cada escenario registra tres solicitudes de preparación: dos inicios de sesión y una creación de categoría. Estas se incluyen en el total de muestras de los archivos JTL, pero se excluyen de las métricas de negocio presentadas en este informe.
 
-El porcentaje de errores se calcula sobre el total de muestras del archivo JTL; los tiempos de respuesta y el throughput se reportan para las solicitudes de negocio.
+El porcentaje de errores se calcula sobre el total de muestras del archivo JTL. Los tiempos de respuesta y el throughput se reportan para las solicitudes de negocio, de acuerdo con las métricas disponibles.
 
 ### 3.1. Endpoints evaluados
 
@@ -53,13 +57,13 @@ El porcentaje de errores se calcula sobre el total de muestras del archivo JTL; 
 | `GET /api/v1/events/{eventId}/participants` | Consultar participantes | Organizador | 50 / 500 | HTTP 200 |
 | `POST /api/v1/results` | Registrar un resultado | Organizador | 50 / 500 | HTTP 201 |
 
-El plan contiene aserciones para verificar los códigos HTTP esperados. Los resultados reportados indican que las cinco rutas respondieron correctamente en los escenarios evaluados.
+El plan contiene aserciones para verificar los códigos HTTP esperados. Los resultados de la ejecución documentada indican que las cinco rutas respondieron con los códigos previstos.
 
-**Alcance de seguridad:** estas pruebas comprueban el acceso autenticado a las rutas seleccionadas. No constituyen una auditoría integral de seguridad ni demuestran por sí solas el rechazo de tokens ausentes, inválidos, vencidos o de usuarios sin permisos.
+**Alcance de seguridad:** estas pruebas comprueban el acceso autenticado a las rutas seleccionadas. No constituyen una auditoría integral de seguridad ni demuestran por sí solas que se rechacen todos los tokens ausentes, inválidos o vencidos, o los usuarios sin permisos suficientes.
 
 ## 4. Configuración de los escenarios
 
-Cada iteración ejecuta las cinco solicitudes de negocio una vez por hilo.
+Cada iteración ejecuta una vez las cinco solicitudes de negocio.
 
 | Parámetro | Escenario de carga | Escenario de estrés |
 |---|---:|---:|
@@ -70,11 +74,11 @@ Cada iteración ejecuta las cinco solicitudes de negocio una vez por hilo.
 | Solicitudes de preparación | 3 | 3 |
 | Total de muestras JTL | 253 | 2.503 |
 
-Los totales se calculan a partir de las cinco solicitudes de negocio por iteración, más las tres solicitudes de preparación de cada escenario.
+Los totales se obtienen de las cinco solicitudes de negocio por iteración, más las tres solicitudes de preparación de cada escenario.
 
 ## 5. Resultados medidos
 
-Los siguientes valores corresponden a la ejecución reportada del 28 de octubre de 2026 y deben mantenerse vinculados a sus archivos de evidencia.
+Los siguientes resultados corresponden a la ejecución documentada del 28 de octubre de 2026 a las 19:05:28.043 UTC, equivalente a las 14:05:28.043 en UTC−05:00. Los valores fueron reportados como verificados contra `jmeter-metrics.json` y los archivos JTL de esa ejecución.
 
 | Métrica | Carga | Estrés |
 |---|---:|---:|
@@ -83,60 +87,47 @@ Los siguientes valores corresponden a la ejecución reportada del 28 de octubre 
 | Total de muestras JTL | 253 | 2.503 |
 | Errores registrados | 0 | 0 |
 | Porcentaje de error sobre el JTL | 0 % | 0 % |
-| Tiempo mínimo de negocio | 7 ms | 10 ms |
-| Tiempo medio de negocio | 13,65 ms | 149,36 ms |
-| Percentil 95 (p95) | 22 ms | 300 ms |
-| Tiempo máximo de negocio | 37 ms | 423 ms |
-| Throughput de negocio reportado | 53,86 solicitudes/s | 155,21 solicitudes/s |
+| Tiempo mínimo de negocio | 11 ms | 9 ms |
+| Tiempo medio de negocio | 22,656 ms | 213,8908 ms |
+| Percentil 95 (p95) | 32 ms | 395 ms |
+| Tiempo máximo de negocio | 46 ms | 654 ms |
+| Throughput de negocio reportado | 50,1002 solicitudes/s | 138,2438 solicitudes/s |
 
 ### 5.1. Interpretación de los resultados
 
-- **Carga:** se registraron 250 solicitudes de negocio y tres solicitudes de preparación. El tiempo medio reportado fue de 13,65 ms y el percentil 95 fue de 22 ms.
-- **Estrés:** se registraron 2.500 solicitudes de negocio y tres solicitudes de preparación. El tiempo medio fue de 149,36 ms y el percentil 95 fue de 300 ms.
-- **Porcentaje de errores:** los archivos revisados reportan cero errores en ambos escenarios.
-- **Tiempos máximos:** se registraron máximos de 37 ms en carga y 423 ms en estrés. Estos valores representan las respuestas más lentas observadas y no el comportamiento de la mayoría de las solicitudes.
-- **Throughput:** el runner reportó 53,86 solicitudes por segundo en carga y 155,21 solicitudes por segundo en estrés. Estos valores corresponden a las ventanas de cálculo utilizadas por el runner y deben interpretarse dentro del entorno de prueba.
+- **Escenario de carga:** se registraron 250 solicitudes de negocio y tres solicitudes de preparación. El tiempo medio reportado fue de 22,656 ms y el p95 fue de 32 ms.
+- **Escenario de estrés:** se registraron 2.500 solicitudes de negocio y tres solicitudes de preparación. El tiempo medio reportado fue de 213,8908 ms y el p95 fue de 395 ms.
+- **Errores:** los archivos revisados reportaron cero errores en ambos escenarios.
+- **Tiempos máximos:** se registraron máximos de 46 ms en carga y 654 ms en estrés.
+- **Throughput:** las métricas reportaron 50,1002 solicitudes por segundo en carga y 138,2438 solicitudes por segundo en estrés. Estos valores deben interpretarse según las ventanas de cálculo del runner y las condiciones del entorno local.
 
-El aumento de concurrencia estuvo acompañado por un incremento del tiempo medio y del p95. Aun así, en esta ejecución no se registraron errores en los JTL revisados.
+El escenario de estrés presentó mayores tiempos de respuesta promedio y p95 que el escenario de carga. Esto indica un incremento de la latencia bajo la configuración de concurrencia evaluada. Sin embargo, el throughput reportado fue mayor en estrés; por sí solo, este resultado no demuestra una mejora general del rendimiento ni permite establecer la capacidad máxima del sistema.
 
-Los resultados no establecen por sí solos si el rendimiento satisface los requisitos de producción, puesto que no se ha definido un umbral SLO y la ejecución se realizó en un entorno local.
+No se definió un umbral SLO de latencia o throughput. Por tanto, los resultados describen el comportamiento observado, pero no permiten declarar una garantía de rendimiento para producción.
 
 ## 6. Evidencias de la ejecución
 
-Los gráficos incluidos a continuación son resúmenes generados a partir de los archivos JTL y contrastados con `jmeter-metrics.json`. No son capturas directas de la interfaz gráfica de JMeter.
+No se incluyen gráficos como evidencia de esta ejecución. Las capturas PNG disponibles corresponden a una fecha anterior y no fueron verificadas contra los JTL documentados; por ello, no se presentan como resultados de esta corrida.
 
-### 6.1. Escenario de carga
-
-![Resumen de carga generado desde load.jtl](./evidencia-resumen-carga-2026-10-28.png)
-
-Fuente de datos: `evidence/team/load.jtl`.
-
-### 6.2. Escenario de estrés
-
-![Resumen de estrés generado desde stress.jtl](./evidencia-resumen-estres-2026-10-28.png)
-
-Fuente de datos: `evidence/team/stress.jtl`.
-
-### 6.3. Archivos de respaldo
+### 6.1. Archivos de evidencia
 
 - [Métricas de JMeter](../evidence/team/jmeter-metrics.json)
 - [Resultados JTL de carga](../evidence/team/load.jtl)
 - [Resultados JTL de estrés](../evidence/team/stress.jtl)
-- [Informe de ejecución de JMeter](../evidence/team/jmeter.json)
 - [Plan de pruebas RACE-50](./RACE-50-rendimiento.jmx)
 
-**Nota sobre las imágenes:** las capturas históricas `evidencia-resumen-carga.png` y `evidencia-resumen-estres.png` no están presentes en el directorio de trabajo y no se han restaurado. Los archivos CSV históricos `resultados-carga.csv` y `resultados-estres.csv` corresponden a otra ejecución y no se utilizaron para calcular las métricas presentadas aquí.
+Las rutas anteriores son relativas a la ubicación de este informe. Los archivos deben existir en esas ubicaciones para que los enlaces funcionen correctamente.
 
-Antes de entregar el informe, debe verificarse que los dos archivos PNG enlazados en las secciones 6.1 y 6.2 existan realmente en el directorio `performance`.
+Los JTL documentados contienen tres solicitudes de preparación y 250 o 2.500 muestras de negocio, respectivamente. Los resultados reportados indican cero errores y métricas de negocio coherentes con el resumen de JMeter correspondiente a esa ejecución.
 
 ## 7. Conclusiones y limitaciones
 
-La ejecución reportada cubrió cinco endpoints protegidos con JWT en dos escenarios de concurrencia. El escenario de carga registró 250 muestras de negocio y el de estrés, 2.500. Al sumar las tres solicitudes de preparación de cada escenario, los archivos JTL contienen 253 y 2.503 muestras, respectivamente.
+La ejecución documentada cubrió cinco endpoints protegidos mediante JWT en dos escenarios de concurrencia. El escenario de carga registró 250 muestras de negocio y el de estrés, 2.500. Al incluir las tres solicitudes de preparación de cada escenario, los archivos JTL contienen 253 y 2.503 muestras, respectivamente.
 
-Según los resultados reportados, no se observaron errores en ninguno de los dos escenarios. Los tiempos medios y los percentiles aumentaron en el escenario de estrés, lo que muestra una mayor latencia al incrementar la concurrencia.
+Según los resultados reportados, no se observaron errores en los dos escenarios. Los tiempos promedio y el p95 aumentaron con la concurrencia configurada para estrés, lo que evidencia una mayor latencia en esa ejecución.
 
-Las pruebas se realizaron con una API Express y una base MongoDB temporales en un entorno local. Los resultados dependen del equipo, la configuración, los datos y el estado del entorno durante la ejecución. Por ello, no deben extrapolarse directamente a producción ni a MongoDB Atlas.
+Las pruebas se realizaron con una API Express y una base MongoDB temporales en un entorno local. Los resultados dependen del equipo, la configuración, los datos y el estado del entorno durante la ejecución. En consecuencia, no deben extrapolarse directamente a producción ni a MongoDB Atlas.
 
-El plan valida respuestas HTTP para las cinco rutas, pero no cubre todos los casos negativos de autenticación y autorización. Para una evaluación completa de seguridad se requieren pruebas adicionales de tokens inválidos, ausentes o vencidos, así como de permisos insuficientes.
+El plan verifica las respuestas HTTP de las cinco rutas seleccionadas, pero no cubre todos los escenarios negativos de autenticación y autorización. Una evaluación de seguridad más completa requeriría pruebas adicionales con tokens ausentes, inválidos o vencidos y con usuarios que no dispongan de los permisos requeridos.
 
-Por último, no se definió un umbral SLO de latencia o throughput. En consecuencia, los resultados permiten describir el comportamiento observado, pero no declarar una garantía de capacidad de producción.
+Finalmente, al no haberse definido umbrales SLO de latencia o throughput, los resultados permiten describir el comportamiento observado, pero no garantizan una capacidad determinada en producción.
